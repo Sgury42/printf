@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/07 15:07:51 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:37:12 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
-
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	unsigned int	i;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	i = 0;
+	while (s && f && s[i] != '\0')
+	{
+		(f(i, &s[i]));
+		i++;
+	}
+}

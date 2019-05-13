@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/11 08:55:23 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 13:21:25 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include "libft.h"
+#include <stdlib.h>
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	t_list	*new_lst;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	if ((new_lst = (t_list *)malloc(sizeof(t_list))) == NULL)
+		return (NULL);
+	new_lst = (f(lst));
+	if (lst && f)
+	{
+		if (new_lst && lst->next)
+			new_lst->next = ft_lstmap(lst->next, f);
+		return (new_lst);
+	}
+	return (NULL);
+}

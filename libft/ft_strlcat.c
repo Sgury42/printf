@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/04 10:06:03 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/10 08:43:59 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include "libft.h"
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	size_t	dst_len;
+	size_t	src_len;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dst_len >= size)
+		return (src_len + size);
+	ft_strncat(dst, src, size - dst_len - 1);
+	return (dst_len + src_len);
+}

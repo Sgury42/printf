@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/08 18:15:06 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:27:49 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include "libft.h"
+#include <unistd.h>
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+void	ft_putendl_fd(char const *s, int fd)
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
-
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
+}

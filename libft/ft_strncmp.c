@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/05 08:38:59 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:40:55 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include <string.h>
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	size_t			i;
+	unsigned char	*un_s1;
+	unsigned char	*un_s2;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	i = 0;
+	un_s1 = (unsigned char *)s1;
+	un_s2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (un_s1[i] == un_s2[i] && un_s1[i] != '\0'
+			&& un_s2[i] != '\0' && i < n - 1)
+		i++;
+	return (un_s1[i] - un_s2[i]);
+}

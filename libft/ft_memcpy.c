@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/02 19:03:23 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:20:14 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include <string.h>
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	size_t			i;
+	unsigned char	*un_dst;
+	unsigned char	*un_src;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	i = 0;
+	un_dst = (unsigned char*)dst;
+	un_src = (unsigned char*)src;
+	while (i < n)
+	{
+		un_dst[i] = un_src[i];
+		i++;
+	}
+	return (un_dst);
+}

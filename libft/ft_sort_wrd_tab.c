@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_sort_wrd_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/13 19:43:44 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/11 15:31:20 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/11 15:47:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include "libft.h"
 
-#define FLAG_MAX
-#define CONVERSION "sdiouxXfcp"
-
-typedef struct	s_data_tab
+char	**ft_sort_wrd_tab(char **tab)
 {
-	char flags[FLAG_MAX];
-	char conv;
-}				t_opt_tab
+	int		i;
+	char	*tmp;
 
-void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data);
-int				ft_dispacher(va_list ap, t_data_tab *data);
-
-
-#endif
+	i = 1;
+	if (*tab == NULL)
+		return (NULL);
+	while (tab[i] != '\0')
+	{
+		if (ft_strcmp(tab[i - 1], tab[i]) > 0)
+		{
+			tmp = tab[i - 1];
+			tab[i - 1] = tab[i];
+			tab[i] = tmp;
+			i = 0;
+		}
+		i++;
+	}
+	return (tab);
+}
