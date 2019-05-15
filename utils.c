@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 14:15:28 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/15 14:53:35 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:29:08 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int ft_print_zero(char *str, int size)
     int len;
 
     len = (size - ft_strlen(str));
-    ft_putstr(str);
     if (len < 0)
         return (0);
     while (len)
@@ -33,7 +32,6 @@ int ft_print_spaces(char *str,int size)
     int len;
 
     len = (size - ft_strlen(str));
-    ft_putstr(str);
     if (len < 0)
         return (0);
     while (len)
