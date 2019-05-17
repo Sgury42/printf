@@ -6,14 +6,13 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 10:07:27 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/15 11:31:15 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/17 13:42:33 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     pf_s(va_list ap, t_data_tab *datas)
+char    *pf_s(va_list ap, t_data_tab *datas)
 {
-    ft_putstr(va_arg(ap, char *));
-    return (1);
+    return (va_arg(ap, char *));
 }

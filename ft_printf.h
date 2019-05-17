@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/15 11:56:46 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/17 14:09:24 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ typedef struct	s_data_tab
 
 void		ft_printf(const char *format, ...);
 int		ft_parse(char *str, t_data_tab *data, int index);
-int		ft_dispacher(va_list ap, t_data_tab *data);
-int		pf_s(va_list ap, t_data_tab *datas);
-int		pf_d(va_list ap, t_data_tab *datas);
 
+
+char		*ft_dispacher(va_list ap, t_data_tab *data);
+char		*pf_s(va_list ap, t_data_tab *datas);
+char		*pf_d(va_list ap, t_data_tab *datas);
+char		*pf_c(va_list ap, t_data_tab *datas);
 
 #endif
