@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/19 14:51:51 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/19 15:31:46 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,14 @@ typedef struct	s_buff
 	int		len;
 }				t_buff;
 
+#define FLAGS "-+ 0#Lhl"
+
 typedef struct	s_data_tab
 {
-	int		just_left;			// - : justify on left side
-	int		sign;				// + : + sign if positive int
-	int		space;				// ' ' : single space before positive int
-	int		zero;				// 0 : replace spaces with 0
-	int		hashtag;			// #
-	int		hh;					
-	int		h;
-	int		ll;
-	int		l;
-	int		L;
-	int		width;
-	int		precision;
+	//index = fonction, 0 = just_left(-), 1 = sign(+), 2 = space(' '),
+	//3 = zero, 4 = hashtag, 5 = L, 6 = h, 7 = l, 8 = hh, 9 = ll,
+	//10 = width, 11 = precision
+	int		flags[12];
 	char	conv;
 }				t_data_tab;
 
