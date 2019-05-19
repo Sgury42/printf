@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/19 16:06:28 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/19 17:05:55 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int		ft_get_flag(char *str, t_data_tab *data, int index)
 	return (++index);
 }
 
-static int		ft_get_data(char *str, t_data_tab *data, int index)
+static int		ft_get_data(char *str, t_data_tab *data, int index, t_buff *buff)
 {
 	static char	conv[NB_CONV] = "sdiouxXfcp";
 	int			i;
@@ -69,16 +69,19 @@ static int		ft_get_data(char *str, t_data_tab *data, int index)
 	i = 0;
 	if (str[++index] == '%')
 	{
-		ft_putchar('%');
+		ft_buffer('%', buff);
 		return (++index);
 	}
 	while (str[index] != conv[i] && i < NB_CONV)
-		i++;
-	if (i == NB_CONV && str[index] != conv[i])
 	{
-		if ((index = ft_get_flag(str, data, index)) < 0)
-			return (-1);
-		i = 0;
+		while (str[index] != conv[i] && i < NB_CONV)
+			i++;
+		if (i == NB_CONV)
+		{
+			if ((index = ft_get_flag(str, data, index)) < 0)
+				return (-1);
+			i = 0;
+		}
 	}
 	data->conv = str[index++];
 	return (index);
@@ -90,7 +93,7 @@ int				ft_parse(char *str, t_data_tab *data, int index, t_buff *buff)
 		ft_buffer(str[index++], buff);
 	if (str[index] == '%')
 	{
-		if ((index = ft_get_data(str, data, index)) < 0)
+		if ((index = ft_get_data(str, data, index, buff)) < 0)
 			return (-1);
 		return (index);
 	}

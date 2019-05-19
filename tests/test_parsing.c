@@ -1,12 +1,12 @@
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int		main()
 {
 	t_data_tab	*data;
 	t_buff		buff;
 	int			index;
-	char		format[123] = "la vie est %-c belle";
+	char		format[123] = "la vie est %l-123.456c belle";
 
 //	if (ac != 2)
 //		return (-1);
