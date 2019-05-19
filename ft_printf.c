@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/17 17:34:30 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/19 08:29:14 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	ft_printf(const char *format, ...)
 		if (ft_dispatcher(ap, data) < 0)
 			return ;
 		ft_bzero(data, sizeof(t_data_tab));
-		data->conv = '\0';
 	}
 	va_end(ap);
-	ft_free_data(data);
+	free(data);
 }
