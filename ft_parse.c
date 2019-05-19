@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/19 08:32:16 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/19 14:52:35 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_get_flag(char *str, t_data_tab *data, int index)
 {
 	int	*flags_address[FLAGS_NB] = {&data->just_left, &data->sign,
 		&data->space, &data->zero, &data->hashtag, &data->h, &data->l, &data->L};
-	char	flags_char[FLAGS_NB] = {'-', '+', ' ',
+	static char	flags_char[FLAGS_NB] = {'-', '+', ' ',
 		'0', '#', 'h', 'l', 'L'};
 	int			i;
 
@@ -87,10 +87,10 @@ int		ft_get_data(char *str, t_data_tab *data, int index)
 	return (index);
 }
 
-int		ft_parse(char *str, t_data_tab *data, int index)
+int		ft_parse(char *str, t_data_tab *data, int index, t_buff *buff)
 {
 	while (str[index] != '\0' && str[index] != '%')
-		ft_buffer(str[index++]);
+		ft_buffer(str[index++], buff);
 	if (str[index] == '%')
 	{
 		if ((index = ft_get_data(str, data, index)))
