@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/19 19:31:41 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/20 13:12:15 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ char        *ft_itoa_base(long int nb, int base)
     while (nb)
     {
         j = -1;
-        str[i] = nb % base + 48;
+        str[i] = nb % base + '0';
         nb /= base;
-        while (str[i] >= 57 && ++j < 6)
+        while (str[i] >= '9' && ++j < 6)
         {
             if (str[i] == replace[j])
             {
