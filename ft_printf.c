@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/19 16:06:18 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/20 10:58:06 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	ft_printf(const char *format, ...)
 	{
 		if ((str = ft_dispatcher(ap, data)) != NULL)
 			return ;
-		ft_str_to_buffer(str);
+		ft_str_to_buff(str, &buff);
 		ft_bzero(data, sizeof(t_data_tab));
 	}
 	if (index < 0)
-		return (-1);                            //need to return usage error
+		return (ft_usage());                            //need to return usage error
 	ft_putstr(buff.buffer);
 	va_end(ap);
 	free(data);

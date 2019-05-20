@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/19 16:49:33 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/20 10:52:45 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
+# define NB_FUNC 1
 
 typedef struct	s_buff
 {
@@ -41,9 +42,12 @@ typedef struct	s_data_tab
 }				t_data_tab;
 
 void			ft_printf(const char *format, ...);
-int				ft_parse(char *str, t_data_tab *data, int index, t_buff *buff);
-int				ft_dispacher(va_list ap, t_data_tab *data);
+int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
 int				ft_buffer(char c, t_buff *buff);
 void			ft_str_to_buff(char *str, t_buff *buff);
+char			*pf_c(va_list ap, t_data_tab *data);
+char			*ft_width(char *str, int width, int just_left);
+void			ft_usage();
+char			*ft_dispatcher(va_list ap, t_data_tab *data);
 
 #endif
