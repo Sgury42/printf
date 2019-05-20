@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/20 14:01:21 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/20 15:19:44 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,20 @@ char	*ft_width(char *str, int width, int just_left)
 	}
 	else
 	{
+		printf("*str = %c\n", *str);
 		while (spaces > 0)
 		{
 			tmp[i++] = ' ';
 			spaces--;
 		}
-		while (*str)
-			tmp[i++] = *str++;
+		printf("*str = %c\n", *str);
+		while (i < width)
+		{
+			printf("test\n");
+			tmp[i] = *str;
+			str++;
+			i++;
+		}
 	}
 	tmp[i] = '\0';
 	ret = tmp;

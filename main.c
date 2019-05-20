@@ -3,6 +3,6 @@
 
 int		main()
 {
-	ft_printf("La vie %c est belle", 'A');
+	ft_printf("La vie %-9c est belle", 'A');
 	return (0);
 }
