@@ -16,5 +16,5 @@ int		main()
 	 * width		yes
 	 * precision	no
 	 */
-	printf("%2s", "salut");
+	printf("%-05d", -15);
 }
