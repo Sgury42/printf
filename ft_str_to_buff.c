@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_str_to_buff.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/10 14:19:07 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/10 19:08:58 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/19 08:59:29 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/20 11:41:58 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+void	ft_str_to_buff(char *str, t_buff *buff)
 {
-	if (alst && *alst && del)
+	while (*str != '\0')
 	{
-		del((*alst)->content, (*alst)->content_size);
-		ft_memdel((void **)alst);
+		ft_buffer(*str, buff);
+		str++;
 	}
 }
