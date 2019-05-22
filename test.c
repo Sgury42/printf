@@ -4,17 +4,17 @@
 int		main()
 {
 	/*-				yes
-	 * +			no flag '+' results in undefined behavior with 'c' conversion specifier [-Wformat]
-	 * ' '			no
-	 * 0			no
+	 * +			yes	
+	 * ' '			yes but if neg nbr flag is ignored
+	 * 0			yes but not compatible with flag -  !!! if neg nbr 0 are between - and nbr: -0015
 	 * #			no
 	 * L			no
-	 * h			no
-	 * l
-	 * hh			no
-	 * ll			no	
+	 * h			yes use for argument type short
+	 * l			yes use for argument type long
+	 * hh			yes use for argument type char
+	 * ll			yes use for argument type long long
 	 * width		yes
-	 * precision	no
+	 * precision	yes display n 0 before nbr, n = precision - nb length
 	 */
-	printf("%-05d", -15);
+	printf("%08d", -12);
 }
