@@ -6,12 +6,12 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/20 17:48:46 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/22 16:48:09 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include "../libft/libft.h"
+#include "ft_printf.h"
+#include "libft/libft.h"
 #include "stdlib.h"
 #include <stdio.h>
 
@@ -48,7 +48,43 @@ static char     *reverse(char *str, int neg)
         --i;
         ++j;
     }
+    str[j] = '\0';
     return (str);
+}
+
+static char     re_val(int nb)
+{
+    if (nb >= 0 && nb <= 9)
+        return (nb + '0');
+    else
+        return (nb - 10 + 'A');
+}
+
+char            *ft_itoa_base(long int nb, int base)
+{
+    char            *str;
+    int             i;
+    int             neg;
+    int             len;
+
+    i = 0;
+    neg = 0;
+    len = ft_count(nb);
+    if ((str = (char *)malloc(sizeof(char) * len)) == NULL)
+        return (NULL);
+    if (nb < 0)
+    {
+        neg = 1;
+        nb *= -1;
+        str[0] = '-';
+        ++i;
+    }
+    while (nb)
+    {
+        str[i++] = re_val(nb % base);
+        nb /= base;
+    }
+    return (free_str(str, neg));
 }
 
 static char     *free_str(char *str, int neg)
@@ -61,50 +97,6 @@ static char     *free_str(char *str, int neg)
     free(str);
     str = tmp;
     return (str);
-}
-
-static void     replace(int nb, char *str, int i, int neg)
-{
-    static char     hexa[6] = "ABCDEF";
-    static char     replace[6] = ":;<=>?";
-    int             j;
-
-    j = -1;
-    while (str[i] >= 57 && ++j < 6)
-    {
-        if (str[i] == replace[j])
-        {
-            str[i] = hexa[j];
-            break ;
-        }
-    }
-}
-
-char            *ft_itoa_base(long int nb, int base)
-{
-    char            *str;
-    int             i;
-    int             neg;
-
-    i = 0;
-    neg = 0;
-    if ((str = (char *)malloc(sizeof(char) * ft_count(nb))) == NULL)
-        return (NULL);
-    if (nb < 0)
-    {
-        neg = 1;
-        nb *= -1;
-        str[0] = '-';
-        ++i;
-    }
-    while (nb)
-    {
-        str[i] = nb % base + 48;
-        nb /= base;
-        replace(nb, str, i, neg);
-        ++i;
-    }
-    return (free_str(str, neg));
 }
 
 int     main(int ac, char **av)
