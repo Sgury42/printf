@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/23 15:27:09 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/23 16:36:56 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,18 +37,16 @@ SRCS =	ft_buffer.c \
 	./libft/ft_memdel.c \
 	./libft/ft_strnew.c \
 	./libft/ft_strrev.c \
-	./libft/ft_memalloc.c \
+	./libft/ft_memalloc.c
 
 
 OBJ = $(SRCS:.c=.o)
 
-LIB = ./libft/
-
-LIBFT = libft/libft.a 
-
 CC = gcc
 
 CFLAGS = -g -Wall -Wextra -Werror
+
+CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
 
 NC = 	 \033[0m
 RED =	 \033[0;31m
@@ -69,8 +67,16 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc -Wall -Wextra -Werror main.c ft_printf.a
+	@gcc $(CFLAGS) main.c $(NAME)
 	@./a.out
+
+debug:
+	@gcc $(CFLAGS) $(CFLAGS_L) main.c $(NAME)
+	@./a.out
+
+leak:
+	@gcc $(CFLAGS) main.c $(NAME)
+	@valgrind ./a.out
 
 
 norm:
