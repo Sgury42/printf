@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 10:07:27 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/23 13:54:22 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:14:45 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		pf_s(va_list ap, t_data_tab *data, t_buff *buff)
 		return (-1);
 	while (++i < 10)
 		if (data->flags[i] || data->flags[precision])
-			ft_usage();
+			ft_usage('s');
 	if (data->flags[width])
 		ft_width(str, data, buff);
 	else

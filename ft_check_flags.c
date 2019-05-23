@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 13:39:04 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 11:53:19 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:07:58 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	ft_check_flags(t_data_tab *data)
 		flag_count++;
 	if (flag_count > 1 || (data->flags[zero] && data->flags[just_left])
 			|| (data->flags[space] && data->flags[sign]))
-		ft_usage();
+		ft_usage(data->conv);
 }

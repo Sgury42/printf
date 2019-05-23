@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 12:00:41 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:13:48 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_width(char *str, t_data_tab *data, t_buff *buff)
 	if (data->flags[just_left])
 	{
 		if (data->flags[zero])
-			ft_usage();
+			ft_usage(data->conv);
 		justify_left(str, spaces, buff);
 	}
 	else
