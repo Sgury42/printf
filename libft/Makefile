@@ -6,7 +6,7 @@
 #    By: sgury <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 11:27:10 by sgury             #+#    #+#              #
-#    Updated: 2019/05/16 10:35:15 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/23 14:51:46 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,18 +39,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "compilation succeed"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
 
 clean:
 	@rm -rf $(OBJS)
-	@echo "objets removed"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@echo "libft.a removed"
 
 re: fclean all
 
