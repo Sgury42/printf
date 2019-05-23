@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 13:09:29 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:52:19 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,12 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 	i = 0;
 	while (i < FLAGS_NB && str[index] != flags_char[i])
 		i++;
-	printf("flags_char = %c", flags_char[i]);
 	if ((i == 6 || i == 7) && str[index] == str[index + 1])
 	{
 		data->flags[i + 2] = 1;
 		return (index + 2);
 	}
-	if (i < FLAGS_NB && str[index] != flags_char[i]
-			&& (ft_isdigit(str[index]) || str[index] == '.'))
+	if (i == FLAGS_NB && (ft_isdigit(str[index]) || str[index] == '.'))
 		return (ft_get_nbr(str, data, index));
 	if (i < FLAGS_NB && str[index] == flags_char[i])
 		data->flags[i] = 1;
@@ -80,7 +78,7 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 		if (i == NB_CONV)
 		{
 			if ((index = ft_get_flag(str, data, index)) < 0)
-				return (index);				////////////////////
+				return (-1);
 			i = 0;
 		}
 	}
@@ -95,7 +93,7 @@ int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
 	if (str[index] == '%')
 	{
 		if ((index = ft_get_data(str, data, index, buff)) < 0)
-			return (index);				//////////////////////////
+			return (-1);
 		return (index);
 	}
 	return (0);

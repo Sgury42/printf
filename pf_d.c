@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/23 12:04:01 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:56:47 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int		pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 			ft_buffer('+', buff);
 		ft_str_to_buff(str, buff);
 	}
-	ft_strdel(&str);
+//	ft_strdel(&str);
 	return (0);
 }
