@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 09:46:51 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:23:33 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,21 @@
 # define BUFF_SIZE 4096
 # define NB_FUNC 3
 
-enum flags { just_left, sign, space, zero, hashtag, L, h, l, hh, ll, width, precision };
+enum flags 
+{
+	just_left,
+	sign,
+	space,
+	zero,
+	hashtag,
+	L,
+	h,
+	l,
+	hh,
+	ll,
+	width,
+	precision
+};
 
 typedef struct	s_buff
 {
