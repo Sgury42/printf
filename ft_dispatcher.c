@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:03:20 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/22 09:51:36 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 12:04:23 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff)
     }
     static int (*fct_list[NB_FUNC])(va_list, t_data_tab *, t_buff *) = {pf_c, pf_s, pf_d};
     if (i >= 0 && i < NB_FUNC)
+	{
         return ((fct_list[i]))(ap, data, buff);
+	}
     return (-1);
 }

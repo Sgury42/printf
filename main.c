@@ -3,6 +3,10 @@
 
 int		main()
 {
-	ft_printf("La vie %c est %8s belle", 'A', "super");
+	ft_putstr("my printf: ");
+	ft_printf("La vie %c est %s belle%+09d\n", 'A', "super", -100);
+	ft_putstr("rl printf: ");
+	printf("La vie %c est %s belle%+09d\n", 'A', "super", -100);
+
 	return (0);
 }

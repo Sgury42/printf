@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/22 13:41:01 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:09:29 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int		ft_get_nbr(const char *str, t_data_tab *data, int index)
 			index++;
 	}
 	if (precision)
-		data->flags[11] = nbr;
+		data->flags[precision] = nbr;
 	else
-		data->flags[10] = nbr;
+		data->flags[width] = nbr;
 	return (index);
 }
 
@@ -44,17 +44,18 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 	int			i;
 
 	i = 0;
-	while (str[index] != flags_char[i] && i < FLAGS_NB)
+	while (i < FLAGS_NB && str[index] != flags_char[i])
 		i++;
+	printf("flags_char = %c", flags_char[i]);
 	if ((i == 6 || i == 7) && str[index] == str[index + 1])
 	{
 		data->flags[i + 2] = 1;
 		return (index + 2);
 	}
-	if (str[index] != flags_char[i]
+	if (i < FLAGS_NB && str[index] != flags_char[i]
 			&& (ft_isdigit(str[index]) || str[index] == '.'))
 		return (ft_get_nbr(str, data, index));
-	if (str[index] == flags_char[i])
+	if (i < FLAGS_NB && str[index] == flags_char[i])
 		data->flags[i] = 1;
 	else
 		return (-1);
@@ -72,19 +73,19 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 		ft_buffer('%', buff);
 		return (++index);
 	}
-	while (str[index] != conv[i] && i < NB_CONV)
+	while (i < NB_CONV && str[index] != conv[i])
 	{
-		while (str[index] != conv[i] && i < NB_CONV)
+		while (i < NB_CONV && str[index] != conv[i])
 			i++;
 		if (i == NB_CONV)
 		{
 			if ((index = ft_get_flag(str, data, index)) < 0)
-				return (-1);
+				return (index);				////////////////////
 			i = 0;
 		}
 	}
-	data->conv = str[index++];
-	return (index);
+	data->conv = str[index];
+	return (++index);
 }
 
 int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
@@ -94,7 +95,7 @@ int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
 	if (str[index] == '%')
 	{
 		if ((index = ft_get_data(str, data, index, buff)) < 0)
-			return (-1);
+			return (index);				//////////////////////////
 		return (index);
 	}
 	return (0);

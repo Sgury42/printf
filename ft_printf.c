@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/22 13:41:31 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:07:49 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	ft_printf(const char *format, ...)
 		ft_memset(data, '\0', sizeof(t_data_tab));
 	}
 	if (index < 0)
+	{
+		printf("index = %d\n", index);
 		return (ft_usage());
+	}
 	ft_putstr(buff.buffer);
 	va_end(ap);
 	free(data);

@@ -16,5 +16,5 @@ int		main()
 	 * width		yes
 	 * precision	yes display n 0 before nbr, n = precision - nb length
 	 */
-	printf("%08d", -12);
+	printf("% 1d", 12);
 }
