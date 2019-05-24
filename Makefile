@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/23 16:36:56 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/24 10:28:13 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,9 @@ SRCS =	ft_buffer.c \
 	./libft/ft_memdel.c \
 	./libft/ft_strnew.c \
 	./libft/ft_strrev.c \
-	./libft/ft_memalloc.c
+	./libft/ft_memalloc.c \
+	./libft/ft_putstr_fd.c \
+	./libft/ft_putchar_fd.c
 
 
 OBJ = $(SRCS:.c=.o)
