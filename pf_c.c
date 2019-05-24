@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 08:35:31 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 09:32:23 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:14:28 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		pf_c(va_list ap, t_data_tab *data, t_buff *buff)
 	i = 0;
 	while (++i < 10)
 		if (data->flags[i] || data->flags[precision])
-			ft_usage();
+			ft_usage('c');
 	c = va_arg(ap, int);
 	if (data->flags[width])
 		c_flags(c, data, buff);

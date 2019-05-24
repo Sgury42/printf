@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 13:40:49 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:29:59 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_printf(const char *format, ...)
 	if (index < 0)
 	{
 		printf("index = %d\n", index);
-		return (ft_usage());
+		return (ft_usage('z'));
 	}
 	ft_putstr(buff.buffer);
 	va_end(ap);
