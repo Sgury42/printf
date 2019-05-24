@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/24 17:53:08 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/24 18:10:33 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@
 int     main(void)
 {
     int count = 1;
+    int *a;
+    int b = 42;
 
+    a = &b;
     TEST_C(count); ++count;
 
     ft_printf("[ TEST ] --> %s \n[ TEST ] --> %35lld\n\n", "Hello World !", (long long)42);
@@ -80,5 +83,11 @@ int     main(void)
 
     ft_printf("[ TEST ] --> %o\n\n", 15);
     printf("[ TEST ] --> %o\n\n\n", 15);
+
+
+    TEST_C(count); ++count;
+
+    ft_printf("[ TEST ] --> %p\n\n", a);
+    printf("[ TEST ] --> %p\n\n\n", a);
     return (0);
 }
