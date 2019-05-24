@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/24 10:07:42 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/24 14:04:43 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static void justify_right(char *str, t_data_tab *data, t_buff *buff)
 
 	flag_sign = data->flags[sign];
 	flag_zero = data->flags[zero];
-	spaces = data->flags[width] - ft_strlen(str) - flag_sign + flag_zero;
+	spaces = data->flags[width] - ft_strlen(str) - flag_sign;
+	if (flag_sign)
+		spaces += flag_zero;
 	c = ' ';
 	if (flag_zero)
 		c = '0';
