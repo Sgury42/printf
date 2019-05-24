@@ -6,12 +6,13 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 10:32:14 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/22 14:34:11 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/24 15:44:18 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
@@ -21,17 +22,9 @@
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
 
-static int      is_spaces(char c)
-{
-    return ((c >= 9 && c <= 13) || c == 32);
-}
-
 static int      val_check(char c)
 {
-    if (c >= '0' && c <= '9')
-        return ((int)c - '0');
-    else
-        return ((int)c - 'A' + 10);
+    return (c >= '0' && c <= '9') ? ((int)c - '0') : ((int)c - 'A' + 10);
 }
 
 int     ft_convert_base(char *str, int base)
@@ -56,9 +49,6 @@ int     ft_convert_base(char *str, int base)
     }
     return (result);
 }
-
-
-#include <stdlib.h>
 
 int     main(int ac, char **av)
 {

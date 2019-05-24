@@ -6,31 +6,52 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/23 13:01:55 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/24 15:48:18 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf 
+NAME = ft_printf.a 
 
-SRCS =	ft_printf.c \
+SRCS =	ft_buffer.c \
+	ft_check_flags.c \
 	ft_dispatcher.c \
-	ft_itoa_base.c \
-	ft_convert_base.c \
+	ft_get_str.c \
 	ft_parse.c \
-	pf_d.c \
-	pf_p.c \
-	pf_s.c \
+	ft_printf.c \
+	ft_str_to_buff.c \
+	ft_usage.c \
+	ft_width.c \
+	ft_intlen.c \
 	pf_c.c \
+	pf_d.c \
+	pf_s.c \
+	ft_convert_base.c \
+	ft_itoa_base.c \
+	./libft/ft_atoi.c \
+	./libft/ft_bzero.c \
+	./libft/ft_isdigit.c \
+	./libft/ft_itoa.c \
+	./libft/ft_memset.c \
+	./libft/ft_putstr.c \
+	./libft/ft_strcmp.c \
+	./libft/ft_strdel.c \
+	./libft/ft_strdup.c \
+	./libft/ft_strlen.c \
+	./libft/ft_memdel.c \
+	./libft/ft_strnew.c \
+	./libft/ft_strrev.c \
+	./libft/ft_memalloc.c \
+	./libft/ft_putstr_fd.c \
+	./libft/ft_putchar_fd.c
+
 
 OBJ = $(SRCS:.c=.o)
 
-LIB_C_PATH = ./libft/
-
-LIBFT = libft/libft.a 
-
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
+CFLAGS = -g -Wall -Wextra -Werror
+
+CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
 
 NC = 	 \033[0m
 RED =	 \033[0;31m
@@ -41,29 +62,27 @@ YELLOW = \033[1;33m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(SRCS) $(LIBFT) -o $@ $(CFLAGS)
+	@ar rc $(NAME) $^
+	@ranlib $(NAME)
 	@clear
 	@echo "\033[2A $(GREEN) [ Compile status ]		 [OK] $(NC)"
 
-%.o: %.c $(LIBFT)
+%.o: %.c 
 	@$(CC) -o $@ -c $< $(CFLAGS)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
-$(LIBFT):
-	@make -C ./libft/
+test:
+	@gcc $(CFLAGS) main.c $(NAME)
+	@./a.out
 
-debug: $(OBJ)
-	@$(CC) $(SRCS) -fsanitize=address -fno-omit-frame-pointer \
-	$(LIBFT) -o $@ $(CFLAGS)
-	@clear
-	@echo "\033[2A $(GREEN) [ Compile status ]		 [OK] $(NC)"
-	@./printf
+debug:
+	@gcc $(CFLAGS) $(CFLAGS_L) main.c $(NAME)
+	@./a.out
 
-leak: $(OBJ)
-	@$(CC) $(SRCS) $(LIBFT) -o $@ $(CFLAGS)
-	@clear
-	@echo "\033[2A $(GREEN) [ Compile status ]		 [OK] $(NC)"
-	@valgrind --leak-check=yes ./printf
+leak:
+	@gcc $(CFLAGS) main.c $(NAME)
+	@valgrind ./a.out
+
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)

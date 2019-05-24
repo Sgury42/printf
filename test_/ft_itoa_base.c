@@ -6,27 +6,15 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/20 17:48:46 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/24 15:35:44 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include "../libft/libft.h"
+#include "ft_printf.h"
+#include "libft/libft.h"
 #include "stdlib.h"
 #include <stdio.h>
 
-static int  ft_count(int nb)
-{
-    int  count;
-
-    count = 0;
-    while (nb)
-    {
-        ++count;
-        nb /= 10;
-    }
-    return (count);
-}
 
 static char     *reverse(char *str, int neg)
 {
@@ -51,6 +39,11 @@ static char     *reverse(char *str, int neg)
     return (str);
 }
 
+static char val(int nb)
+{
+    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'A');
+}
+
 static char     *free_str(char *str, int neg)
 {
     char    *tmp;
@@ -63,32 +56,17 @@ static char     *free_str(char *str, int neg)
     return (str);
 }
 
-static void     replace(int nb, char *str, int i, int neg)
-{
-    static char     hexa[6] = "ABCDEF";
-    static char     replace[6] = ":;<=>?";
-    int             j;
-
-    j = -1;
-    while (str[i] >= 57 && ++j < 6)
-    {
-        if (str[i] == replace[j])
-        {
-            str[i] = hexa[j];
-            break ;
-        }
-    }
-}
-
 char            *ft_itoa_base(long int nb, int base)
 {
     char            *str;
     int             i;
     int             neg;
+    int             len;
 
     i = 0;
     neg = 0;
-    if ((str = (char *)malloc(sizeof(char) * ft_count(nb))) == NULL)
+    len = ft_intlen(nb);
+    if ((str = (char *)malloc(sizeof(char) * len)) == NULL)
         return (NULL);
     if (nb < 0)
     {
@@ -99,11 +77,10 @@ char            *ft_itoa_base(long int nb, int base)
     }
     while (nb)
     {
-        str[i] = nb % base + 48;
+        str[i++] = val(nb % base);
         nb /= base;
-        replace(nb, str, i, neg);
-        ++i;
     }
+    str[i] = '\0';
     return (free_str(str, neg));
 }
 

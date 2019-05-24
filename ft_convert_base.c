@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 10:32:14 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/22 16:26:28 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/24 15:47:29 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 static int      val_check(char c)
 {
-    if (c >= '0' && c <= '9')
-        return ((int)c - '0');
-    else
-        return ((int)c - 'A' + 10);
+    return (c >= '0' && c <= '9') ? ((int)c - '0') : ((int)c - 'A' + 10);
 }
 
-int     convert_base_to_dec(char *str, int base)
+long int     convert_base_to_dec(char *str, int base)
 {
     int len;
-    int result;
+    long int result;
     int power;
     int i;
 

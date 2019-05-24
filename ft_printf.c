@@ -6,31 +6,40 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/15 11:27:32 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/23 17:29:59 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdlib.h>
 #include "ft_printf.h"
 
 void	ft_printf(const char *format, ...)
 {
 	t_data_tab	*data;
-	int		index;
+	t_buff		buff;
+	int			index;
 	va_list		ap;
 
 	va_start(ap, format);
 	if ((data = (t_data_tab *)malloc(sizeof(t_data_tab))) == NULL)
 		return ;
+	ft_memset(data, '\0', sizeof(t_data_tab));
+	ft_bzero(&buff, sizeof(t_buff));
+	buff.len = 0;
 	index = 0;
-        while((index = ft_parse(format, data, index)) > 0)
-        {
-                if (ft_dispatcher(ap, data) < 0)
-                        return ;
-                ft_bzero(data->flags, FLAG_MAX);
-                data->conv = '\0';
-        }
+	while((index = ft_parse(format, data, index, &buff)) > 0)
+	{
+		ft_check_flags(data);
+		if (ft_dispatcher(ap, data, &buff) < 0)
+			return ;
+		ft_memset(data, '\0', sizeof(t_data_tab));
+	}
+	if (index < 0)
+	{
+		printf("index = %d\n", index);
+		return (ft_usage('z'));
+	}
+	ft_putstr(buff.buffer);
 	va_end(ap);
-        ft_free_data(data);
+	free(data);
 }

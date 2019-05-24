@@ -6,27 +6,11 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/22 16:48:09 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/24 15:38:34 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
-#include "stdlib.h"
-#include <stdio.h>
-
-static int  ft_count(int nb)
-{
-    int  count;
-
-    count = 0;
-    while (nb)
-    {
-        ++count;
-        nb /= 10;
-    }
-    return (count);
-}
 
 static char     *reverse(char *str, int neg)
 {
@@ -48,43 +32,12 @@ static char     *reverse(char *str, int neg)
         --i;
         ++j;
     }
-    str[j] = '\0';
     return (str);
 }
 
-static char     re_val(int nb)
+static char val(int nb)
 {
-    if (nb >= 0 && nb <= 9)
-        return (nb + '0');
-    else
-        return (nb - 10 + 'A');
-}
-
-char            *ft_itoa_base(long int nb, int base)
-{
-    char            *str;
-    int             i;
-    int             neg;
-    int             len;
-
-    i = 0;
-    neg = 0;
-    len = ft_count(nb);
-    if ((str = (char *)malloc(sizeof(char) * len)) == NULL)
-        return (NULL);
-    if (nb < 0)
-    {
-        neg = 1;
-        nb *= -1;
-        str[0] = '-';
-        ++i;
-    }
-    while (nb)
-    {
-        str[i++] = re_val(nb % base);
-        nb /= base;
-    }
-    return (free_str(str, neg));
+    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'A');
 }
 
 static char     *free_str(char *str, int neg)
@@ -99,15 +52,30 @@ static char     *free_str(char *str, int neg)
     return (str);
 }
 
-int     main(int ac, char **av)
+char            *ft_itoa_base(long int nb, int base)
 {
-    if (ac != 3)
+    char            *str;
+    int             i;
+    int             neg;
+    int             len;
+
+    i = 0;
+    neg = 0;
+    len = ft_intlen(nb);
+    if ((str = (char *)malloc(sizeof(char) * len)) == NULL)
+        return (NULL);
+    if (nb < 0)
     {
-        printf("ERROR -> usage ./[a.out] [NUMBER] [BASE]\n");
-        return (0);
+        neg = 1;
+        nb *= -1;
+        str[0] = '-';
+        ++i;
     }
-    printf("\033[1m\033[34mNumber:\033[0m %s \033[1m\033[35m Base: \033[0m%s\
-            \n\033[1m\033[32mResult: \033[0m%s\n", av[1], av[2],
-            ft_itoa_base(atoi(av[1]), atoi(av[2])));
-    return (0);
+    while (nb)
+    {
+        str[i++] = val(nb % base);
+        nb /= base;
+    }
+    str[i] = '\0';
+    return (free_str(str, neg));
 }

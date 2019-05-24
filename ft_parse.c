@@ -6,57 +6,95 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/14 17:17:31 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/23 13:52:19 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_get_data(char *str, t_data_tab *data)
+static int		ft_get_nbr(const char *str, t_data_tab *data, int index)
 {
-	char	conv[NB_CONV] = "sdiouxXfcp";
-	int		i;
-	int		j;
-	int		ret;
+	int	nbr;
+	int	precision;
 
-	i = 0;
-	j = 0;
-	ret = 1;
-	str++;
-	if (*str == '%')
+	nbr = 0;
+	precision = 0;
+	if (str[index] == '.')
 	{
-		ft_putchar('%');
-		return (2);
+		precision = 1;
+		index++;
 	}
-	while (*str != conv[i] && ret <= FLAG_MAX)
+	if (ft_isdigit(str[index]))
 	{
-		while (i < NB_CONV && *str != conv[i])
-			i++;
-		if (i == NB_CONV && *str != conv[i])
-		{
-			data->flags[j++] = *str;
-			i = 0;
-			str++;
-		}
-		ret++;
+		nbr = nbr * 10 + ft_atoi(&str[index]);
+		while (ft_isdigit(str[index]))
+			index++;
 	}
-	if (ret > FLAG_MAX)
-		return (-1);
-	data->conv = *str;
-	return (ret);
+	if (precision)
+		data->flags[precision] = nbr;
+	else
+		data->flags[width] = nbr;
+	return (index);
 }
 
-int		ft_parse(char *str, t_data_tab *data, int i)
+static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 {
-	int	ret;
+	static char	flags_char[FLAGS_NB] = {'-', '+', ' ',
+		'0', '#', 'L', 'h', 'l'};
+	int			i;
 
-	ret = 0;
-	while (str[i] != '\0' && str[i] != '%')
-		ft_putchar(str[i++]);
-	if (str[i] == '%')
+	i = 0;
+	while (i < FLAGS_NB && str[index] != flags_char[i])
+		i++;
+	if ((i == 6 || i == 7) && str[index] == str[index + 1])
 	{
-		if ((ret = ft_get_data(str + i, data)))
-			return (ret + i);
+		data->flags[i + 2] = 1;
+		return (index + 2);
+	}
+	if (i == FLAGS_NB && (ft_isdigit(str[index]) || str[index] == '.'))
+		return (ft_get_nbr(str, data, index));
+	if (i < FLAGS_NB && str[index] == flags_char[i])
+		data->flags[i] = 1;
+	else
+		return (-1);
+	return (++index);
+}
+
+static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *buff)
+{
+	static char	conv[NB_CONV] = "sdiouxXfcp";
+	int			i;
+
+	i = 0;
+	if (str[++index] == '%')
+	{
+		ft_buffer('%', buff);
+		return (++index);
+	}
+	while (i < NB_CONV && str[index] != conv[i])
+	{
+		while (i < NB_CONV && str[index] != conv[i])
+			i++;
+		if (i == NB_CONV)
+		{
+			if ((index = ft_get_flag(str, data, index)) < 0)
+				return (-1);
+			i = 0;
+		}
+	}
+	data->conv = str[index];
+	return (++index);
+}
+
+int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
+{
+	while (str[index] != '\0' && str[index] != '%')
+		ft_buffer(str[index++], buff);
+	if (str[index] == '%')
+	{
+		if ((index = ft_get_data(str, data, index, buff)) < 0)
+			return (-1);
+		return (index);
 	}
 	return (0);
 }
