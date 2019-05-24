@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:30:02 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 17:31:51 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/24 10:35:04 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	ft_usage(char conv)
 		ft_putstr_fd("\t%[-][width]s\n", 2);
 	else if (conv == 'd')
 	{
-		ft_putstr_fd("\t%[- | + | 0 ][width][.precision][h | l | hh | ll]d\n", 2);
-		ft_putstr_fd("\tincompatible [- & 0]\n\tno double size\n", 2);
+		ft_putstr_fd
+			("\t%[- | + | 0 | ' '][width][.precision][h | l | hh | ll]d\n", 2);
+		ft_putstr_fd("\tincompatible [- & 0][+ & ' ']\n\tno double size\n", 2);
 	}
 	exit (1);
 }
