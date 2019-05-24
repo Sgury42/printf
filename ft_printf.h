@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/24 10:12:45 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/24 15:41:20 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void			ft_usage(char conv);
 int				ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_check_flags(t_data_tab *data);
 char			*ft_get_str(va_list ap, t_data_tab *data);
+void			ft_size_error(t_data_tab *data);
 
 #endif

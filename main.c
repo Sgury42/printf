@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/24 14:35:47 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/24 15:52:12 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int     main(void)
 
     TEST_C(count); ++count;
 
-	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %Ld\n\n", 'H', 142);
-//    printf("[ TEST ] --> %c \n[ TEST ] --> %Ld\n\n\n", 'H', 142);
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %hhd\n\n", 'H', (char)4748364);
+//    printf("[ TEST ] --> %c \n[ TEST ] --> %hd\n\n\n", 'H', 142);
  
     return (0);
 }
