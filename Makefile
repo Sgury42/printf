@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/24 15:48:18 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/24 17:52:00 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS =	ft_buffer.c \
 	pf_c.c \
 	pf_d.c \
 	pf_s.c \
+	pf_x.c \
+	pf_o.c \
 	ft_convert_base.c \
 	ft_itoa_base.c \
 	./libft/ft_atoi.c \
