@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 13:52:19 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/25 10:08:45 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_get_nbr(const char *str, t_data_tab *data, int index)
+static int		ft_get_int(const char *str, t_data_tab *data, int index)
 {
 	int	nbr;
 	int	precision;
@@ -52,7 +52,7 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 		return (index + 2);
 	}
 	if (i == FLAGS_NB && (ft_isdigit(str[index]) || str[index] == '.'))
-		return (ft_get_nbr(str, data, index));
+		return (ft_get_int(str, data, index));
 	if (i < FLAGS_NB && str[index] == flags_char[i])
 		data->flags[i] = 1;
 	else
