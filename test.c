@@ -16,5 +16,6 @@ int		main()
 	 * width		yes
 	 * precision	yes display n 0 before nbr, n = precision - nb length
 	 */
-	printf("%z1d", 12);
+	printf("%+ dendofline\n", 2500);
+
 }

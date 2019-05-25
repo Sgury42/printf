@@ -1,29 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   pf_upperx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:57:01 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/25 14:26:06 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/25 14:58:16 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int		ft_get_nbr(va_list ap, t_data_tab *data)
+int		pf_upperx(va_list ap, t_data_tab *data, t_buff *buff)
 {
-	long long int	nbr;
-
-	nbr = va_arg(ap, long long);
-	if (data->flags[hh])
-		nbr = (char)nbr;
-	else if (data->flags[h])
-		nbr = (short int)nbr;
-	else if (data->flags[l])
-		nbr = (long int)nbr;
-	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
-	return (nbr);
 }

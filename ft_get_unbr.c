@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_str.c                                       :+:      :+:    :+:   */
+/*   ft_get_unbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 14:02:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/24 15:50:57 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/25 14:58:55 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/25 15:56:48 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_str(va_list ap, t_data_tab *data)
+int		ft_get_unbr(va_list ap, t_data_tab *data)
 {
-	long long	nbr;
+	unsigned long long int	nbr;
 
-	nbr = va_arg(ap, long long);
+	nbr = va_arg(ap, unsigned long long);
 	if (data->flags[hh])
-	{
-		if (nbr < -128 || nbr > 127)
-			ft_size_error(data);
-	}
+		nbr = (unsigned char)nbr;
 	else if (data->flags[h])
-	{
-		if (nbr < -32768 || nbr > 32767)
-			ft_size_error(data);
-	}
+		nbr = (short unsigned int)nbr;
 	else if (data->flags[l])
-	{
-		if (nbr < -2147483648 || nbr > 2147483647)
-			ft_size_error(data);
-	}
+		nbr = (long unsigned int)nbr;
 	else if (data->flags[ll] == 0)
-	{
-		if (nbr < -2147483648 || nbr > 2147483647)
-			ft_size_error(data);
-	}
-	return (ft_itoa(nbr));
+		nbr = (unsigned int)nbr;
+	return (nbr);
+
 }
