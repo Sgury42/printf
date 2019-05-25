@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/25 11:41:23 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/25 15:56:40 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 {
-	char	*str;
-	int		neg;
+	long long int	nbr;
+	char			*str;
+	int				neg;
 
 	neg = 0;
-	if ((str = ft_strdup(ft_get_str(ap, data))) == NULL)
+	nbr = ft_get_nbr(ap, data);
+	if ((str = ft_strdup(ft_itoa(nbr))) == NULL)
 		return (-1);
-	if (data->flags[L] || data->flags[hashtag])
-		ft_usage('d');
 	if (data->flags[width] <= (int)ft_strlen(str))
 		data->flags[width] = 0;
 	ft_flags_display(neg, data, buff);

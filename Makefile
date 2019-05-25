@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/25 11:37:33 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/25 16:01:32 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = ft_printf.a
 SRCS =	ft_buffer.c \
 	ft_check_flags.c \
 	ft_dispatcher.c \
-	ft_get_str.c \
 	ft_parse.c \
 	ft_printf.c \
 	ft_str_to_buff.c \
@@ -30,6 +29,7 @@ SRCS =	ft_buffer.c \
 	pf_s.c \
 	pf_o.c \
 	ft_get_nbr.c \
+	ft_get_unbr.c \
 	./libft/ft_atoi.c \
 	./libft/ft_bzero.c \
 	./libft/ft_isdigit.c \

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_get_unbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:57:01 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/25 14:58:55 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/25 15:56:48 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_get_nbr(va_list ap, t_data_tab *data)
+int		ft_get_unbr(va_list ap, t_data_tab *data)
 {
-	long long int	nbr;
+	unsigned long long int	nbr;
 
-	nbr = va_arg(ap, long long);
+	nbr = va_arg(ap, unsigned long long);
 	if (data->flags[hh])
-		nbr = (char)nbr;
+		nbr = (unsigned char)nbr;
 	else if (data->flags[h])
-		nbr = (short int)nbr;
+		nbr = (short unsigned int)nbr;
 	else if (data->flags[l])
-		nbr = (long int)nbr;
+		nbr = (long unsigned int)nbr;
 	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
+		nbr = (unsigned int)nbr;
 	return (nbr);
+
 }
