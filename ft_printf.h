@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:01:30 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/25 19:09:03 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 6
-# define FLAGS "-+ 0#Lhl"
+# define NB_FUNC 7
+#define FLAGS "-+ 0#Lhl"
 
-typedef enum	e_flags 
+typedef enum 	e_flags
 {
 	just_left,
 	sign,
@@ -47,7 +47,6 @@ typedef struct	s_buff
 	int	len;
 }		t_buff;
 
-
 typedef struct	s_data_tab
 {
 	//index = fonction, 0 = just_left(-), 1 = sign(+), 2 = space(' '),
@@ -57,24 +56,28 @@ typedef struct	s_data_tab
 	char	conv;
 }		t_data_tab;
 
-void		ft_printf(const char *format, ...);
-int		ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
-int		ft_buffer(char c, t_buff *buff);
-void		ft_str_to_buff(char *str, t_buff *buff);
-int		pf_c(va_list ap, t_data_tab *data, t_buff *buff);
-int		pf_s(va_list ap, t_data_tab *data, t_buff *buff);
-int		pf_d(va_list ap, t_data_tab *data, t_buff *buff);
-int		pf_x(va_list ap, t_data_tab *data, t_buff *buff);
-int		pf_o(va_list ap, t_data_tab *data, t_buff *buff);
-int		pf_p(va_list ap, t_data_tab *data, t_buff *buff);
-void		ft_width(char *str, t_data_tab *data, t_buff *buff);
-void		ft_usage(char c);
-int		ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
-void		ft_check_flags(t_data_tab *data);
-char		*ft_get_str(va_list ap, t_data_tab *data);
-int     	ft_intlen(long long nb);
-char            *ft_itoa_base(long long nb, int base);
-long     	convert_base_to_dec(char *str, int base);
-
+void			ft_printf(const char *format, ...);
+int			ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
+int			ft_buffer(char c, t_buff *buff);
+void			ft_str_to_buff(char *str, t_buff *buff);
+char			*ft_itoa_base(long long int nb, int base);
+int			ft_intlen(long long nb);
+void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
+int			pf_c(va_list ap, t_data_tab *data, t_buff *buff);
+int			pf_s(va_list ap, t_data_tab *data, t_buff *buff);
+int			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
+int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_p(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_u(va_list ap, t_data_tab *data, t_buff *buff);
+void			ft_width(char *str, t_data_tab *data, t_buff *buff);
+void			ft_usage(char conv);
+int			ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
+void			ft_check_flags(t_data_tab *data);
+char			*ft_get_str(va_list ap, t_data_tab *data);
+int			ft_get_nbr(va_list ap, t_data_tab *data);
+int			ft_get_unbr(va_list ap, t_data_tab *data);
+void			ft_size_error(t_data_tab *data);
 
 #endif

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_str.c                                       :+:      :+:    :+:   */
+/*   ft_get_unbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 14:02:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 18:57:22 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/05/25 14:58:55 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/25 15:56:48 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-char	*ft_get_str(va_list ap, t_data_tab *data)
+int		ft_get_unbr(va_list ap, t_data_tab *data)
 {
-    if (data->flags[hh])
-        return (va_arg(ap, char *));
-    else if (data->flags[l])
-        return (ft_itoa(va_arg(ap, long)));
-    else if (data->flags[ll])
-        return (ft_itoa(va_arg(ap, long long)));
-    else
-        return (ft_itoa(va_arg(ap, int)));
+	unsigned long long int	nbr;
+
+	nbr = va_arg(ap, unsigned long long);
+	if (data->flags[hh])
+		nbr = (unsigned char)nbr;
+	else if (data->flags[h])
+		nbr = (short unsigned int)nbr;
+	else if (data->flags[l])
+		nbr = (long unsigned int)nbr;
+	else if (data->flags[ll] == 0)
+		nbr = (unsigned int)nbr;
+	return (nbr);
+
 }

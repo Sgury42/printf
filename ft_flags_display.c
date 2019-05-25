@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_str.c                                       :+:      :+:    :+:   */
+/*   ft_flags_display.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 14:02:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 18:57:22 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/05/25 10:34:09 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/25 11:47:15 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-char	*ft_get_str(va_list ap, t_data_tab *data)
+void	ft_flags_display(int neg, t_data_tab *data, t_buff *buff)
 {
-    if (data->flags[hh])
-        return (va_arg(ap, char *));
-    else if (data->flags[l])
-        return (ft_itoa(va_arg(ap, long)));
-    else if (data->flags[ll])
-        return (ft_itoa(va_arg(ap, long long)));
-    else
-        return (ft_itoa(va_arg(ap, int)));
+	if (data->flags[space] && neg == 0)
+		ft_buffer(' ', buff);
+	if (data->flags[zero] && (data->flags[sign] || neg))
+	{
+		if (neg)
+			ft_buffer('-', buff);
+		else
+			ft_buffer('+', buff);
+		data->flags[width] -= 1;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/24 18:08:59 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/25 19:19:02 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,19 @@ SRCS =	ft_buffer.c \
 	ft_usage.c \
 	ft_width.c \
 	ft_intlen.c \
-	pf_c.c \
-	pf_d.c \
-	pf_s.c \
-	pf_x.c \
-	pf_o.c \
-	pf_p.c \
+	ft_get_str.c \
+	ft_get_nbr.c \
+	ft_get_unbr.c \
+	ft_flags_display.c \
 	ft_convert_base.c \
 	ft_itoa_base.c \
+	pf_c.c \
+	pf_s.c \
+	pf_p.c \
+	pf_d.c \
+	pf_o.c \
+	pf_u.c \
+	pf_x.c \
 	./libft/ft_atoi.c \
 	./libft/ft_bzero.c \
 	./libft/ft_isdigit.c \
@@ -52,7 +57,7 @@ OBJ = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
 
@@ -75,17 +80,16 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc $(CFLAGS) main.c $(NAME)
-	@./a.out
+	@gcc $(CFLAGS) -o $@ main.c $(NAME)
+	@./test
 
 debug:
-	@gcc $(CFLAGS) $(CFLAGS_L) main.c $(NAME)
-	@./a.out
+	@gcc $(CFLAGS) $(CFLAGS_L) -o $@ main.c $(NAME)
+	@./debug
 
 leak:
-	@gcc $(CFLAGS) main.c $(NAME)
-	@valgrind ./a.out
-
+	@gcc $(CFLAGS) -o $@ main.c $(NAME)
+	@valgrind ./leak
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)

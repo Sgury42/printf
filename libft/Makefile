@@ -6,7 +6,7 @@
 #    By: sgury <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/05 11:27:10 by sgury             #+#    #+#              #
-#    Updated: 2019/04/11 18:58:58 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/25 19:03:10 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,11 +46,9 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -rf $(OBJS)
-	@echo "objets removed"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@echo "libft.a removed"
 
 re: fclean all
 
