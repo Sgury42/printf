@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/25 19:19:02 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/25 19:22:19 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,16 +80,16 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc $(CFLAGS) -o $@ main.c $(NAME)
-	@./test
+	@gcc $(CFLAGS) main.c $(NAME)
+	@./a.out
 
 debug:
-	@gcc $(CFLAGS) $(CFLAGS_L) -o $@ main.c $(NAME)
-	@./debug
+	@gcc $(CFLAGS) $(CFLAGS_L) main.c $(NAME)
+	@./a.out
 
 leak:
-	@gcc $(CFLAGS) -o $@ main.c $(NAME)
-	@valgrind ./leak
+	@gcc $(CFLAGS) main.c $(NAME)
+	@valgrind ./a.out
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)
