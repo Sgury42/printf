@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/25 10:55:08 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/25 14:47:21 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char     *reverse(char *str, int neg)
 
 static char val(int nb)
 {
-    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'A');
+    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'a');
 }
 
 static char     *free_str(char *str, int neg)
