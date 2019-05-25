@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 10:02:24 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/25 11:40:53 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 3
+# define NB_FUNC 4
 
 enum flags 
 {
@@ -61,9 +61,13 @@ void			ft_printf(const char *format, ...);
 int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
 int				ft_buffer(char c, t_buff *buff);
 void			ft_str_to_buff(char *str, t_buff *buff);
+char			*ft_itoa_base(long int nb, int base);
+int				ft_intlen(long nb);
+void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
 int				pf_c(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_s(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_d(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
 void			ft_usage(char conv);
 int				ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);

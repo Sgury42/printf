@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/25 10:01:33 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/25 11:37:33 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,13 @@ SRCS =	ft_buffer.c \
 	ft_usage.c \
 	ft_width.c \
 	ft_size_error.c \
+	ft_itoa_base.c \
+	ft_flags_display.c \
+	ft_intlen.c \
 	pf_c.c \
 	pf_d.c \
 	pf_s.c \
+	pf_o.c \
 	ft_get_nbr.c \
 	./libft/ft_atoi.c \
 	./libft/ft_bzero.c \
