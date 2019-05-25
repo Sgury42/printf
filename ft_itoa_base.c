@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/24 15:38:34 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/25 10:55:08 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char     *free_str(char *str, int neg)
     return (str);
 }
 
-char            *ft_itoa_base(long int nb, int base)
+char            *ft_itoa_base(long long nb, int base)
 {
     char            *str;
     int             i;

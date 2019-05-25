@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/24 18:09:14 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/25 10:55:32 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ft_usage(char c);
 int		ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
 void		ft_check_flags(t_data_tab *data);
 char		*ft_get_str(va_list ap, t_data_tab *data);
-int     	ft_intlen(long nb);
+int     	ft_intlen(long long nb);
 char            *ft_itoa_base(long int nb, int base);
 long     	convert_base_to_dec(char *str, int base);
 
