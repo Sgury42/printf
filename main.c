@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/25 18:47:00 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/26 12:37:29 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ int     main(void)
     printf("[ TEST ] --> %c \n[ TEST ] --> %d\n\n\n", 'H', 42);
 
 
-    /*TEST_C(count); ++count;*/
-
-    /*ft_printf("[ TEST ] --> %0c \n[ TEST ] --> %d\n\n", 'H', 42);*/
-
-
     TEST_C(count); ++count;
 
     ft_printf("[ TEST ] --> %c \n[ TEST ] --> %+42d\n\n", 'H', 42);
@@ -95,5 +90,23 @@ int     main(void)
 
     ft_printf("\n[ TEST ] --> %u\n\n", (unsigned int)1200001);
     printf("[ TEST ] --> %u\n\n\n", (unsigned int)1200001);
+
+
+    TEST_C(count); ++count;
+
+    ft_printf("\n[ TEST HEXA ] --> %i\n\n", 0x15A);
+    printf("[ TEST HEXA ] --> %i\n\n\n", 0x15A);
+
+
+    TEST_C(count); ++count;
+
+    ft_printf("\n[ TEST OCTAL ] --> %i\n\n", 0325453);
+    printf("[ TEST OCTAL ] --> %i\n\n\n", 0325453);
+
+
+    TEST_C(count); ++count;
+
+    ft_printf("\n[ TEST DECIMAL ] --> %i\n\n", 25453);
+    printf("[ TEST DECIMAL ] --> %i\n\n\n", 25453);
     return (0);
 }

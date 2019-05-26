@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 19:09:03 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/26 12:31:27 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 7
+# define NB_FUNC 8
 #define FLAGS "-+ 0#Lhl"
 
 typedef enum 	e_flags
@@ -65,12 +65,12 @@ int			ft_intlen(long long nb);
 void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
 int			pf_c(va_list ap, t_data_tab *data, t_buff *buff);
 int			pf_s(va_list ap, t_data_tab *data, t_buff *buff);
-int			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
-int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
-int  			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
-int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_p(va_list ap, t_data_tab *data, t_buff *buff);
+int			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_i(va_list ap, t_data_tab *data, t_buff *buff);
+int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_u(va_list ap, t_data_tab *data, t_buff *buff);
+int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
 void			ft_usage(char conv);
 int			ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_d.c                                             :+:      :+:    :+:   */
+/*   pf_i.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/26 11:46:48 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/05/26 11:46:13 by flbeaumo          #+#    #+#             */
+/*   Updated: 2019/05/26 12:28:47 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     pf_d(va_list ap, t_data_tab *data, t_buff *buff)
+int     pf_i(va_list ap, t_data_tab *data, t_buff *buff)
 {
     long long int	nbr;
-    char		*str;
-    int			neg;
+    char	    	*str;
+    int		    	neg;
 
     neg = 0;
     nbr = ft_get_nbr(ap, data);
