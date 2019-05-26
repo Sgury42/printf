@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/26 12:31:27 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/26 14:08:46 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 
-# define FLAGS_NB 8
+# define FLAGS_NB 9
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 8
+# define NB_FUNC 9
 #define FLAGS "-+ 0#Lhl"
 
 typedef enum 	e_flags
