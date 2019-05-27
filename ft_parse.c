@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 10:08:45 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/27 10:56:13 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 	if (str[++index] == '%')
 	{
 		ft_buffer('%', buff);
+		data->conv = '%';
 		return (++index);
 	}
 	while (i < NB_CONV && str[index] != conv[i])

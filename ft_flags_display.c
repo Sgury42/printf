@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 10:34:09 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:48:30 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/27 09:52:53 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_flags_display(int neg, t_data_tab *data, t_buff *buff)
 {
-	if (data->flags[space] && neg == 0)
+	if (data->flags[space] && neg == 0 && data->flags[width] == 0)
 		ft_buffer(' ', buff);
 	if (data->flags[zero] && (data->flags[sign] || neg))
 	{
