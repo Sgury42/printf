@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 19:00:06 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/27 11:08:59 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int     ft_get_nbr(va_list ap, t_data_tab *data)
     long long int	nbr;
 
     nbr = va_arg(ap, long long int);
+    printf("nb = %lld\n", nbr);
     if (data->flags[hh])
         nbr = (char)nbr;
     else if (data->flags[h])
