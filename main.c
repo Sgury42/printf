@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/26 19:24:42 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/27 10:56:52 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 static int     test_c()
 {
-    printf(YEL"======= TEST FOR %%c =======\n\n"NC);
+    ft_printf(YEL"======= TEST FOR %%c =======\n\n"NC);
 
     ft_putstr(GOOD"[TEST] - ft_printf(\"This is a test for %c !!\", \'H\')\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %c !!\n\n\n", 'H'); 

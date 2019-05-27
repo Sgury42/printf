@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:03:20 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/26 14:13:56 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/27 10:56:24 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int     ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff)
     int i;
 
     i = 0;
+    if (data->conv == '%')
+        return (1);
     static char *fct_name[NB_FUNC] = {"c", "s", "p", "d", "i", "o", "u",
         "x", "X"};
     while (i < NB_FUNC)
