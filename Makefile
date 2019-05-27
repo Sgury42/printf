@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/27 09:49:43 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/27 11:42:52 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,25 +15,31 @@ NAME = ft_printf.a
 SRCS =	ft_buffer.c \
 	ft_check_flags.c \
 	ft_dispatcher.c \
+	ft_get_str.c \
 	ft_parse.c \
 	ft_printf.c \
 	ft_str_to_buff.c \
 	ft_usage.c \
 	ft_width.c \
-	ft_size_error.c \
-	ft_itoa_base.c \
-	ft_flags_display.c \
 	ft_intlen.c \
-	pf_c.c \
-	pf_d.c \
-	pf_s.c \
-	pf_o.c \
+	ft_get_str.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
+	ft_flags_display.c \
+	ft_convert_base.c \
+	ft_itoa_base.c \
+	ft_itoa.c \
+	pf_c.c \
+	pf_s.c \
+	pf_p.c \
+	pf_d.c \
+	pf_o.c \
+	pf_u.c \
+	pf_x.c \
+	pf_i.c \
 	./libft/ft_atoi.c \
 	./libft/ft_bzero.c \
 	./libft/ft_isdigit.c \
-	./libft/ft_itoa.c \
 	./libft/ft_memset.c \
 	./libft/ft_putstr.c \
 	./libft/ft_strcmp.c \
@@ -52,7 +58,7 @@ OBJ = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
 
@@ -85,7 +91,6 @@ debug:
 leak:
 	@gcc $(CFLAGS) main.c $(NAME)
 	@valgrind ./a.out
-
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)
