@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/26 11:46:48 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/27 11:17:03 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int     pf_d(va_list ap, t_data_tab *data, t_buff *buff)
     nbr = ft_get_nbr(ap, data);
     if ((str = ft_strdup(ft_itoa(nbr))) == NULL)
         return (-1);
+    printf("str = %s\n", str);
     if (data->flags[width] <= (int)ft_strlen(str))
         data->flags[width] = 0;
     ft_flags_display(neg, data, buff);

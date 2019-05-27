@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 11:46:09 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/27 11:52:57 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/27 11:19:40 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ static char		*ft_fill_str(char *str, int len, long nbr, int neg)
 	return (str);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long int n)
 {
 	char	        *str;
 	int		n_len;
 	int		neg;
-	long int	nbr;
+	long long int	nbr;
 
 	neg = 0;
-	nbr = (long int)n;
+	nbr = n;
 	if (nbr < 0)
 	{
 		neg = 1;
