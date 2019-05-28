@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:57:10 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/27 12:05:18 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static void justify_right(char *str, t_data_tab *data, t_buff *buff)
 	}
 	if (flag_sign && c != '0')
 		ft_buffer('+', buff);
+	if (data->flags[hashtag] && (data->conv == 'x' || data->conv == 'X'))
+	{
+		ft_str_to_buff("0x", buff);
+		spaces -= 2;
+	}
 	ft_str_to_buff(str, buff);
 }
 
@@ -46,6 +51,11 @@ static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
 	spaces = data->flags[width] - ft_strlen(str) - flag_sign;
 	if (flag_sign)
 		ft_buffer('+', buff);
+	if (data->flags[hashtag] && (data->conv == 'x' || data->conv == 'X'))
+	{
+		ft_str_to_buff("0x", buff);
+		spaces -= 2;
+	}
 	ft_str_to_buff(str, buff);
 	while (spaces > 0)
 	{
@@ -57,11 +67,7 @@ static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
 void	ft_width(char *str, t_data_tab *data, t_buff *buff)
 {
 	if (data->flags[just_left])
-	{
-		if (data->flags[zero])
-			ft_usage(data->conv);
 		justify_left(str, data, buff);
-	}
 	else
 		justify_right(str, data, buff);
 }

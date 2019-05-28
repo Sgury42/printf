@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/27 10:13:38 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/28 14:58:30 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int     main(void)
 
     TEST_C(count); ++count;
 
-    ft_printf("[ TEST ] --> %s \n[ TEST ] --> %35lld\n\n", "Hello World !", (long long)42);
-    printf("[ TEST ] --> %s \n[ TEST ] --> %35lld\n\n\n", "Hello World !", (long long)42);
+    ft_printf("[ TEST ] --> %%35lld d = (long long)42\n[ TEST ] --> %35lld\n\n", (long long)42);
+    printf("[ TEST ] --> %%35lld d = (long long)42\n[ TEST ] --> %35lld\n\n\n", (long long)42);
 
 
     TEST_C(count); ++count;
@@ -38,19 +38,8 @@ int     main(void)
 
     TEST_C(count); ++count;
 
-    ft_printf("[ TEST ] --> %s \n[ TEST ] --> % 4ld\n\n", "Hello World !", (long)42);
-    printf("[ TEST ] --> %s \n[ TEST ] --> % 4ld\n\n\n", "Hello World !", (long)42);
-
-
-    TEST_C(count); ++count;
-
     ft_printf("[ TEST ] --> %c \n[ TEST ] --> %d%%\n\n", 'H', 42);
     printf("[ TEST ] --> %c \n[ TEST ] --> %d%%\n\n\n", 'H', 42);
-
-
-    /*TEST_C(count); ++count;*/
-
-    /*ft_printf("[ TEST ] --> %0c \n[ TEST ] --> %d\n\n", 'H', 42);*/
 
 
     TEST_C(count); ++count;
@@ -78,6 +67,18 @@ int     main(void)
 
 	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %%tralala\n\n", 'H');
     printf("[ TEST ] --> %c \n[ TEST ] --> %%tralala\n\n\n", 'H');
+
+ 	TEST_C(count); ++count;
+
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %x\n\n", 'H', 1234);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %x\n\n\n", 'H', 1234);
+
+	 TEST_C(count); ++count;
+
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %X\n\n", 'H', 155);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %X\n\n\n", 'H', 155);
+
+
 
 	printf("end of test\n");
  
