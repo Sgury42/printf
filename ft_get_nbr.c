@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:57:01 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 19:24:36 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_get_nbr(va_list ap, t_data_tab *data)
+long long int		ft_get_nbr(va_list ap, t_data_tab *data)
 {
 	long long int	nbr;
 

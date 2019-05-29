@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/29 19:08:11 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 19:24:51 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 	int				neg;
 
 	neg = 0;
-	nbr = ft_get_nbr(ap, data);
+        nbr = ft_get_nbr(ap, data);
+        /*nbr = va_arg(ap, long long);*/
 	if (nbr < 0)
 		neg = 1;
 	if ((str = ft_strdup(ft_itoa(nbr))) == NULL)
