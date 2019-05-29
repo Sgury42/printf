@@ -1,0 +1,76 @@
+ft_check_flags.c:	if (data->flags[L])
+ft_check_flags.c:	if (data->flags[h])
+ft_check_flags.c:	if (data->flags[l])
+ft_check_flags.c:	if (data->flags[hh])
+ft_check_flags.c:	if (data->flags[ll])
+ft_check_flags.c:	if (flag_count > 1 || (data->flags[zero] && data->flags[just_left])
+ft_check_flags.c:			|| (data->flags[space] && data->flags[sign]))
+ft_check_flags.c:		ft_usage(data->conv);
+ft_dispatcher.c:	if (data->conv == '%')
+ft_dispatcher.c:        if (!ft_strcmp(&data->conv, fct_name[i]))
+ft_flags_display.c:	if (data->flags[space] && neg == 0 && data->flags[width] == 0)
+ft_flags_display.c:	if (data->flags[zero] && (data->flags[sign] || neg))
+ft_flags_display.c:		data->flags[width] -= 1;
+ft_get_nbr.c:	if (data->flags[hh])
+ft_get_nbr.c:	else if (data->flags[h])
+ft_get_nbr.c:	else if (data->flags[l])
+ft_get_nbr.c:	else if (data->flags[ll] == 0)
+ft_get_unbr.c:	if (data->flags[hh])
+ft_get_unbr.c:	else if (data->flags[h])
+ft_get_unbr.c:	else if (data->flags[l])
+ft_get_unbr.c:	else if (data->flags[ll] == 0)
+ft_parse.c:		data->flags[precision] = nbr;
+ft_parse.c:			data->flags[precision] = 'z';
+ft_parse.c:		printf("precision in parsing = %d\n", data->flags[precision]);
+ft_parse.c:		data->flags[width] = nbr;
+ft_parse.c:		data->flags[i + 2] = 1;
+ft_parse.c:		data->flags[i] = 1;
+ft_parse.c:		data->conv = '%';
+ft_parse.c:	data->conv = str[index];
+ft_printf.c:		printf("precision ft_printf.c = %d\n", data->flags[precision]);
+ft_printf.c:		printf("sign ft_printf.c = %d\n", data->flags[sign]);
+ft_printf.c:		printf("zero ft_printf.c = %d\n", data->flags[zero]);
+ft_printf.c:		printf("just_left ft_printf.c = %d\n", data->flags[just_left]);
+ft_printf.c:		printf("width ft_printf.c = %d\n", data->flags[width]);
+ft_size_error.c:	if (data->flags[h])
+ft_size_error.c:	else if (data->flags[hh])
+ft_size_error.c:	else if (data->flags[l])
+ft_size_error.c:	else if (data->flags[hh] == 0)
+ft_width.c:	flag_sign = data->flags[sign];
+ft_width.c:	flag_zero = data->flags[zero];
+ft_width.c:	spaces = data->flags[width] - ft_strlen(str) - flag_sign;
+ft_width.c:	if (data->flags[hashtag] && (data->conv == 'x' || data->conv == 'X'))
+ft_width.c:	flag_sign = data->flags[sign];
+ft_width.c:	spaces = data->flags[width] - ft_strlen(str) - flag_sign;
+ft_width.c:	if (data->flags[hashtag] && (data->conv == 'x' || data->conv == 'X'))
+ft_width.c:	if (data->flags[just_left])
+pf_c.c:	spaces = data->flags[width];
+pf_c.c:	if (data->flags[just_left])
+pf_c.c:		if (data->flags[i] || data->flags[precision])
+pf_c.c:	if (data->flags[width])
+pf_d.c:	if (data->flags[width] <= (int)ft_strlen(str))
+pf_d.c:		data->flags[width] = 0;
+pf_d.c:	if (data->flags[width])
+pf_d.c:		if (data->flags[sign] && neg == 0)
+pf_f.c:	if (data->flags[l])
+pf_f.c:	if (data->flags[L])
+pf_f.c:	prec = data->flags[precision];
+pf_f.c:	if (data->flags[width] && (data->flags[width] > (int)ft_strlen(str)))
+pf_f.c:		if (data->flags[sign] && neg == 0)
+pf_o.c:	if (data->flags[sign])
+pf_o.c:		data->flags[sign] = 0;
+pf_o.c:	if (data->flags[width] <= (int)ft_strlen(str))
+pf_o.c:		data->flags[width] = 0;
+pf_o.c:	if (data->flags[width])
+pf_s.c:		if (data->flags[i] || data->flags[precision])
+pf_s.c:	if (data->flags[width])
+pf_upperx.c:	if (data->flags[sign])
+pf_upperx.c:		data->flags[sign] = 0;
+pf_upperx.c:	if (data->flags[hashtag] && data->flags[zero])
+pf_upperx.c:		data->flags[width] -= 2;
+pf_upperx.c:	if (data->flags[width] && (data->flags[width] > (int)ft_strlen(str)))
+pf_x.c:	if (data->flags[sign])
+pf_x.c:		data->flags[sign] = 0;
+pf_x.c:	if (data->flags[hashtag] && data->flags[zero])
+pf_x.c:		data->flags[width] -= 2;
+pf_x.c:	if (data->flags[width] && (data->flags[width] > (int)ft_strlen(str)))

@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 15:52:50 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 19:08:06 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void			str_bfr_coma(long double nbr, char *str, int neg, int nbrlen)
 		str[i] = '-';
 }
 
-static char			*get_floatstr(long double nbr, int precision)
+static char			*get_floatstr(long double nbr, int prec)
 {
 	char	*str;
 	int		i;
@@ -63,19 +63,19 @@ static char			*get_floatstr(long double nbr, int precision)
 		nbr *= -1;
 	}
 	nbrlen = float_len(nbr);
-	if ((str = ft_strnew(nbrlen + precision + neg + 1)) == NULL)
+	if ((str = ft_strnew(nbrlen + prec + neg + 1)) == NULL)
 		return (NULL);
 	str_bfr_coma(nbr, str, neg, nbrlen);
 	i = nbrlen + neg;
-	str[i++] = '.';
-	while (precision > 0)
+	if (prec)
+		str[i++] = '.';
+	while (prec > 0)
 	{
 		nbr *= 10;
 		str[i++] = (int)nbr % 10 + '0';
-		precision--;
+		prec--;
 	}
 	str[i] = '\0';
-	printf("str = %s\n", str);
 	return (str);
 }
 
@@ -93,12 +93,11 @@ int		pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 	else
 		nbr = (double)va_arg(ap, double);
 	prec = data->flags[precision];
-	printf("precision = %d\n", prec);
 	if (prec == 0)
 		prec = 6;
 	if (prec == 'z')
 		prec = 0;
-	if ((str = get_floatstr(nbr, precision)) == NULL)
+	if ((str = get_floatstr(nbr, prec)) == NULL)
 		return (-1);
 	ft_flags_display(neg, data, buff);
 	if (data->flags[width] && (data->flags[width] > (int)ft_strlen(str)))

@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/29 15:27:58 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 19:01:05 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ int     main(void)
 
 	TEST_C(count); ++count;
 
-	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %Lf\n\n", 'H', (long double)155555.123456789);
-    printf("[ TEST ] --> %c \n[ TEST ] --> %Lf\n\n\n", 'H', (long double)155555.123456789);
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %.0Lf\n\n", 'H', (long double)155555.123456789);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %.0Lf\n\n\n", 'H', (long double)155555.123456789);
 
 	TEST_C(count); ++count;
 
-	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %.20lf\n\n", 'H', (double)155.123456789);
-    printf("[ TEST ] --> %c \n[ TEST ] --> %.20lf\n\n\n", 'H', (double)155.123456789);
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %20.12lf\n\n", 'H', (double)155.123456789);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %20.12lf\n\n\n", 'H', (double)155.123456789);
 
 	printf("end of test\n");
  
