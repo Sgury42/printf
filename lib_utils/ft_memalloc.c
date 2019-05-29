@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_f.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/28 15:46:38 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/07 13:10:17 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:18:23 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-int		pf_f(va_list ap, t_data_tab *data, t_buff *buff)
+void	*ft_memalloc(size_t size)
 {
-	float	nbr;
+	unsigned char	*alloc;
+	size_t			i;
 
-	nbr = va_arg(ap, float);
-	printf("nbr = %f", nbr);
-	return (0);
+	i = 0;
+	if ((alloc = (unsigned char *)malloc(sizeof(char) * (size))) == NULL)
+		return (NULL);
+	while (i < size)
+		alloc[i++] = 0;
+	return (alloc);
 }

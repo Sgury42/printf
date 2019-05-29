@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/27 11:42:52 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/29 15:06:56 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,7 @@ SRCS =	ft_buffer.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
 	ft_flags_display.c \
-	ft_convert_base.c \
 	ft_itoa_base.c \
-	ft_itoa.c \
 	pf_c.c \
 	pf_s.c \
 	pf_p.c \
@@ -37,21 +35,23 @@ SRCS =	ft_buffer.c \
 	pf_u.c \
 	pf_x.c \
 	pf_i.c \
-	./libft/ft_atoi.c \
-	./libft/ft_bzero.c \
-	./libft/ft_isdigit.c \
-	./libft/ft_memset.c \
-	./libft/ft_putstr.c \
-	./libft/ft_strcmp.c \
-	./libft/ft_strdel.c \
-	./libft/ft_strdup.c \
-	./libft/ft_strlen.c \
-	./libft/ft_memdel.c \
-	./libft/ft_strnew.c \
-	./libft/ft_strrev.c \
-	./libft/ft_memalloc.c \
-	./libft/ft_putstr_fd.c \
-	./libft/ft_putchar_fd.c
+	pf_f.c \
+	./lib_utils/ft_atoi.c \
+	./lib_utils/ft_itoa.c \
+	./lib_utils/ft_bzero.c \
+	./lib_utils/ft_isdigit.c \
+	./lib_utils/ft_memset.c \
+	./lib_utils/ft_putstr.c \
+	./lib_utils/ft_strcmp.c \
+	./lib_utils/ft_strdel.c \
+	./lib_utils/ft_strdup.c \
+	./lib_utils/ft_strlen.c \
+	./lib_utils/ft_memdel.c \
+	./lib_utils/ft_strnew.c \
+	./lib_utils/ft_strrev.c \
+	./lib_utils/ft_memalloc.c \
+	./lib_utils/ft_putstr_fd.c \
+	./lib_utils/ft_putchar_fd.c
 
 
 OBJ = $(SRCS:.c=.o)
@@ -97,12 +97,10 @@ norm:
 
 clean:
 	@rm -rf $(OBJ)
-	@make clean -C ./libft/
 	@echo "$(RED) Remove Object:$(NC)			$(GREEN) [OK] $(NC)" $<
 
 fclean: clean
 	@rm -rf $(NAME)
-	@make fclean -C ./libft/ 
 	@echo "$(RED) Remove Binary:$(NC)			$(GREEN) [OK] $(NC)"
 
 re: fclean all
