@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 10:08:45 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 18:53:00 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static int		ft_get_int(const char *str, t_data_tab *data, int index)
 {
 	int	nbr;
-	int	precision;
+	int	prec;
 
 	nbr = 0;
-	precision = 0;
+	prec = 0;
 	if (str[index] == '.')
 	{
-		precision = 1;
+		prec = 1;
 		index++;
 	}
 	if (ft_isdigit(str[index]))
@@ -30,8 +30,12 @@ static int		ft_get_int(const char *str, t_data_tab *data, int index)
 		while (ft_isdigit(str[index]))
 			index++;
 	}
-	if (precision)
+	if (prec)
+	{
 		data->flags[precision] = nbr;
+		if (nbr == 0)
+			data->flags[precision] = 'z';
+	}
 	else
 		data->flags[width] = nbr;
 	return (index);
@@ -69,6 +73,7 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 	if (str[++index] == '%')
 	{
 		ft_buffer('%', buff);
+		data->conv = '%';
 		return (++index);
 	}
 	while (i < NB_CONV && str[index] != conv[i])
