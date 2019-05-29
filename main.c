@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/28 14:58:30 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 15:27:58 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,20 @@ int     main(void)
 	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %X\n\n", 'H', 155);
     printf("[ TEST ] --> %c \n[ TEST ] --> %X\n\n\n", 'H', 155);
 
+ 	TEST_C(count); ++count;
 
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %f\n\n", 'H', (float)12.34);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %f\n\n\n", 'H', (float)12.34);
+
+	TEST_C(count); ++count;
+
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %Lf\n\n", 'H', (long double)155555.123456789);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %Lf\n\n\n", 'H', (long double)155555.123456789);
+
+	TEST_C(count); ++count;
+
+	ft_printf("[ TEST ] --> %c \n[ TEST ] --> %.20lf\n\n", 'H', (double)155.123456789);
+    printf("[ TEST ] --> %c \n[ TEST ] --> %.20lf\n\n\n", 'H', (double)155.123456789);
 
 	printf("end of test\n");
  

@@ -4,17 +4,17 @@
 int		main()
 {
 	/*-				yes
-	 * +			no	
-	 * ' '			no	
+	 * +			yes
+	 * ' '			yes	
 	 * 0			yes but not compatible with flag -  !!! if neg nbr 0 are between - and nbr: -0015
-	 * #			yes
-	 * L			no
-	 * h			yes use for argument type short
-	 * l			yes use for argument type long
-	 * hh			yes use for argument type char
-	 * ll			yes use for argument type long long
+	 * #			no
+	 * L			yes used for long double
+	 * h			no
+	 * l			yes use for double
+	 * hh			no
+	 * ll			no
 	 * width		yes
-	 * precision	yes display n 0 before nbr, n = precision - nb length
+	 * precision	yes 6 nbr precision if non flag
 	 */
-	printf("%#012xblablabla%#xendofline\n", 2500, 123);
+	printf("%.12lfendofline\n", (double)-0.123456789123);
 }

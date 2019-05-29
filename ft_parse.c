@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/27 10:56:13 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/29 15:51:52 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ static int		ft_get_int(const char *str, t_data_tab *data, int index)
 			index++;
 	}
 	if (precision)
+	{
 		data->flags[precision] = nbr;
+		if (nbr == 0)
+			nbr = 'z';
+	}
 	else
 		data->flags[width] = nbr;
 	return (index);
