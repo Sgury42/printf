@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:38:41 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/30 13:55:11 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/30 17:56:18 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int		pf_p(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long long	nbr;
+        char            *str;
 
 	(void)data;
 	nbr = va_arg(ap, long long);
 	ft_str_to_buff("0x", buff);
-	ft_str_to_buff(ft_itoa_base(nbr, 16), buff);
-	ft_strdel(&str);
+	if ((str = ft_itoa_base(nbr, 16), buff) == NULL)
+            return (-1);
+        ft_str_to_buff(str, buff);
 	return (0);
 }
