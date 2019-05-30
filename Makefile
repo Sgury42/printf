@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/29 15:06:56 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/05/30 11:20:44 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
+CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer 
 
 NC = 	 \033[0m
 RED =	 \033[0;31m
@@ -90,7 +90,7 @@ debug:
 
 leak:
 	@gcc $(CFLAGS) main.c $(NAME)
-	@valgrind ./a.out
+	@valgrind --leak-check=full ./a.out
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)
