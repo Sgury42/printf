@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/30 13:30:25 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/30 14:06:34 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,27 @@ static char     *reverse(char *str, int neg)
 
 static char val(int nb)
 {
-    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'A');
+    return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'a');
 }
 
 static char     *free_str(char *str, int neg)
 {
-    /*char    *tmp;*/
-
-    /*tmp = str;*/
     str = reverse(str, neg);
-    /*free(str);*/
-    /*str = tmp;*/
     return (str);
 }
 
-static int size_after_convert(long long nb, int base, int len)
+static int size_after_convert(long long nb, int base, int neg)
 {
     int     size;
 
     size = 0;
     while (nb)
     {
+        if (neg)
+        {
+            ++size;
+            neg = 0;
+        }
         ++size;
         nb /= base;
     }
@@ -72,32 +72,29 @@ char            *ft_itoa_base(long long nb, int base)
 
     i = 0;
     neg = 0;
-    len = ft_intlen(nb);
+    len = size_after_convert(nb, base, neg);
     if (nb < 0)
     {
         neg = 1;
         nb *= -1;
         ++i;
     }
-    if ((str = (char *)malloc(sizeof(char) * (size_after_convert(nb, ))) == NULL)
+    if ((str = (char *)malloc(sizeof(char) * (len + 1))) == NULL)
         return (NULL);
     if (neg)
         str[0] = '-';
     while (i < (len + neg))
     {
-        str[i] = val(nb % base);
-        i++;
+        str[i++] = val(nb % base);
         nb /= base;
     }
     str[i] = '\0';
     return (free_str(str, neg));
 }
 
-
-int     main()
-{
-    int askip = 15;
-
-    printf("%s\n", ft_itoa_base(15, 10));
-    return (0);
-}
+/*int     main()*/
+/*{*/
+    /*printf("%s\n", ft_itoa_base(14, 16));*/
+    /*printf("%x\n", 14);*/
+    /*return (0);*/
+/*}*/

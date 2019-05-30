@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 12:22:15 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/30 12:14:01 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/30 13:37:24 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int     ft_intlen(long long nb)
 {
     int count;
 
-    count = 1;
+    count = 0;
     while (nb)
     {
         ++count;
