@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 10:07:27 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/23 17:14:45 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/30 13:55:21 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		pf_s(va_list ap, t_data_tab *data, t_buff *buff)
 	int		i;
 
 	i = 0;
-    str = va_arg(ap, char *);
+	str = va_arg(ap, char *);
 	if ((str = ft_strdup(str)) == NULL)
 		return (-1);
 	while (++i < 10)

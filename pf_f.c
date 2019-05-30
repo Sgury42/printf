@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 19:08:06 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/30 14:05:56 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,9 @@ static int			float_len(long double nbr)
 	}
 	return (len);
 }
-/*
-static long double	get_float(va_list ap, t_data_tab *data)
-{
-	long double	nbr;
 
-	nbr = va_arg(ap, long double);
-	if (data->flags[l])
-		nbr = (double)nbr;
-	return (nbr);
-}
-*/
-static void			str_bfr_coma(long double nbr, char *str, int neg, int nbrlen)
+static void			str_bfr_coma(long double nbr, char *str,
+									int neg, int nbrlen)
 {
 	int	i;
 
@@ -79,7 +70,19 @@ static char			*get_floatstr(long double nbr, int prec)
 	return (str);
 }
 
-int		pf_f(va_list ap, t_data_tab *data, t_buff *buff)
+static int			check_prec(t_data_tab *data)
+{
+	int	prec;
+
+	prec = data->flags[precision];
+	if (prec == 0)
+		prec = 6;
+	if (prec == 'z')
+		prec = 0;
+	return (prec);
+}
+
+int					pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long double	nbr;
 	char		*str;
@@ -87,16 +90,13 @@ int		pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 	int			neg;
 
 	neg = 0;
-//	nbr = get_float(ap, data);
 	if (data->flags[L])
 		nbr = va_arg(ap, long double);
 	else
 		nbr = (double)va_arg(ap, double);
-	prec = data->flags[precision];
-	if (prec == 0)
-		prec = 6;
-	if (prec == 'z')
-		prec = 0;
+	if (nbr < 0)
+		neg = 1;
+	prec = check_prec(data);
 	if ((str = get_floatstr(nbr, prec)) == NULL)
 		return (-1);
 	ft_flags_display(neg, data, buff);

@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 14:26:06 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/30 11:34:17 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/30 13:56:08 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int			pf_upperx(va_list ap, t_data_tab *data, t_buff *buff)
 	else
 		ft_str_to_buff(str, buff);
 	ft_strdel(&str);
-	return (1);
+	return (0);
 }
