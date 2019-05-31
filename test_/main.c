@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/29 19:26:40 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/30 21:29:59 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,20 @@ static int  test_x()
     printf(GREEN"[TR_PRINTF] - This is a test for %-#15x !!\n\n\n", 15151515); 
 
     printf(YEL"\n===========================\n"NC);
+    return (1);
+}
+
+static int  test_b()
+{
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %b !!\", 4)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %b !!\n\n\n", 4); 
+
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %b !!\", 11)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %b !!\n\n\n", 11); 
+
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %b !!\", 11)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %b !!\n\n\n", 1234); 
+
     return (1);
 }
 
@@ -230,6 +244,29 @@ static int  test_o()
     return (1);
 }
 
+
+static int test_p()
+{
+    int     ***y;
+    int     **z;
+    int     *a;
+    int     b;
+
+    a = &b;
+    z = &a;
+    b = 42;
+    y = &z;
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %p !!\n\n\n", a); 
+    printf(GREEN"[PRINTF] - This is a test for %p !!\n\n\n", a); 
+
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %p !!\n\n\n", z); 
+    printf(GREEN"[PRINTF] - This is a test for %p !!\n\n\n", z); 
+
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %p !!\n\n\n", y); 
+    printf(GREEN"[PRINTF] - This is a test for %p !!\n\n\n", y); 
+    return (1);
+}
+
 int     main(void)
 {
     char c;
@@ -258,6 +295,12 @@ int     main(void)
                 break ;
             case 'o':
                 test_o();
+                break ;
+            case 'p':
+                test_p();
+                break ;
+            case 'b':
+                test_b();
                 break ;
             case 'D':
                 system("clear");
