@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/29 10:53:03 by sgury            ###   ########.fr        #
+#    Updated: 2019/05/31 16:43:06 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,14 @@ SRCS =	ft_buffer.c \
 	pf_s.c \
 	pf_o.c \
 	pf_x.c \
+	pf_u.c \
+	pf_i.c \
+	pf_p.c \
 	pf_upperx.c \
 	pf_f.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
+	ft_get_color.c \
 	./libft/ft_toupper.c \
 	./libft/ft_atoi.c \
 	./libft/ft_bzero.c \

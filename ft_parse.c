@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 18:53:00 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 15:17:50 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,19 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 
 int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
 {
-	while (str[index] != '\0' && str[index] != '%')
+	while (str[index] != '\0' && str[index] != '%' && str[index] != '{')
 		ft_buffer(str[index++], buff);
 	if (str[index] == '%')
 	{
 		if ((index = ft_get_data(str, data, index, buff)) < 0)
 			return (-1);
+		return (index);
+	}
+	else if (str[index] == '{')
+	{
+		if ((index = ft_get_color(str, index, buff)) < 0)
+			return (-1);
+		data->color = 1;
 		return (index);
 	}
 	return (0);

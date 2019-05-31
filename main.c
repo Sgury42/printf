@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/29 19:01:05 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 17:26:04 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int     main(void)
 
     TEST_C(count); ++count;
 
-    ft_printf("[ TEST ] --> %%35lld d = (long long)42\n[ TEST ] --> %35lld\n\n", (long long)42);
+    ft_printf("{MAGENTA}[ TEST ] --> %%35lld d = (long long)42\n[ TEST ] --> %35lld\n\n{AEOC}", (long long)42);
     printf("[ TEST ] --> %%35lld d = (long long)42\n[ TEST ] --> %35lld\n\n\n", (long long)42);
 
 
     TEST_C(count); ++count;
 
-    ft_printf("[ TEST ] --> %s \n[ TEST ] --> %-100ld\n\n", "Hello World !", (long)42);
+    ft_printf("{ROSE}[ TEST ] --> %s \n{EOC}[ TEST ] --> %-100ld\n\n", "Hello World !", (long)42);
     printf("[ TEST ] --> %s \n[ TEST ] --> %-100ld\n\n\n", "Hello World !", (long)42);
 
 

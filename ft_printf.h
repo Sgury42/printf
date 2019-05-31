@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 18:55:07 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 17:26:52 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define NB_CONV 10
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 7
+# define NB_FUNC 9
 
 enum flags 
 {
@@ -55,6 +55,7 @@ typedef struct	s_data_tab
 	//10 = width, 11 = precision
 	int		flags[12];
 	char	conv;
+	int		color;
 }				t_data_tab;
 
 void			ft_printf(const char *format, ...);
@@ -71,6 +72,9 @@ int				pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_x(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_upperx(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_f(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_u(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_i(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_p(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
 void			ft_usage(char conv);
 int				ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
@@ -78,5 +82,6 @@ void			ft_check_flags(t_data_tab *data);
 int				ft_get_nbr(va_list ap, t_data_tab *data);
 int				ft_get_unbr(va_list ap, t_data_tab *data);
 void			ft_size_error(t_data_tab *data);
+int				ft_get_color(const char *str, int index, t_buff *buff);
 
 #endif
