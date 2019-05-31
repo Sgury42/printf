@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/31 09:57:54 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 10:47:57 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void justify_right(char *str, t_data_tab *data, t_buff *buff)
+static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 {
 	int		spaces;
 	char	c;
@@ -55,7 +55,7 @@ static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
 	}
 }
 
-void	ft_width(char *str, t_data_tab *data, t_buff *buff)
+void		ft_width(char *str, t_data_tab *data, t_buff *buff)
 {
 	if (data->flags[just_left])
 	{

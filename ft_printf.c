@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/30 11:29:36 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/05/31 10:42:11 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_printf(const char *format, ...)
 	ft_bzero(&buff, sizeof(t_buff));
 	buff.len = 0;
 	index = 0;
-	while((index = ft_parse(format, data, index, &buff)) > 0)
+	while ((index = ft_parse(format, data, index, &buff)) > 0)
 	{
 		ft_check_flags(data);
 		if (ft_dispatcher(ap, data, &buff) < 0)

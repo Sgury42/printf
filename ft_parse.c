@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 18:53:00 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 10:41:47 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 	return (++index);
 }
 
-static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *buff)
+static int		ft_get_data(const char *str, t_data_tab *data,
+							int index, t_buff *buff)
 {
 	static char	conv[NB_CONV] = "sdiouxXfcp";
 	int			i;
@@ -91,7 +92,8 @@ static int		ft_get_data(const char *str, t_data_tab *data, int index, t_buff *bu
 	return (++index);
 }
 
-int				ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff)
+int				ft_parse(const char *str, t_data_tab *data,
+							int index, t_buff *buff)
 {
 	while (str[index] != '\0' && str[index] != '%')
 		ft_buffer(str[index++], buff);
