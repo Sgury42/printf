@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/31 10:40:35 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/01 18:03:09 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ char		*ft_itoa_base(long long nb, int base)
 
 /*int     main()*/
 /*{*/
-    /*printf("%s\n", ft_itoa_base(14, 16));*/
-    /*printf("%x\n", 14);*/
+    /*printf("%s\n", ft_itoa_base(14, 2));*/
     /*return (0);*/
 /*}*/

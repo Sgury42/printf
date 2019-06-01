@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/31 10:41:47 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/01 18:14:31 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 static int		ft_get_data(const char *str, t_data_tab *data,
 							int index, t_buff *buff)
 {
-	static char	conv[NB_CONV] = "sdiouxXfcp";
+	static char	conv[NB_CONV] = "sdiouxXfcpb";
 	int			i;
 
 	i = 0;
