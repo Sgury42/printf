@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/30 21:26:15 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/01 16:03:18 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,11 @@ int  			pf_i(va_list ap, t_data_tab *data, t_buff *buff);
 int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_u(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_upperx(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_f(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_b(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
-void			ft_usage(char conv);
+void			ft_usage(char conv);                                          //!!!!!! to delete !!!!!!!!
 int			ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_check_flags(t_data_tab *data);
 char			*ft_get_str(va_list ap, t_data_tab *data);

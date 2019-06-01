@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/31 15:01:44 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/06/01 16:20:58 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS =	ft_buffer.c \
 	pf_o.c \
 	pf_u.c \
 	pf_x.c \
+	pf_upperx.c \
 	pf_i.c \
 	pf_f.c \
 	pf_b.c \
@@ -52,7 +53,8 @@ SRCS =	ft_buffer.c \
 	./lib_utils/ft_strrev.c \
 	./lib_utils/ft_memalloc.c \
 	./lib_utils/ft_putstr_fd.c \
-	./lib_utils/ft_putchar_fd.c
+	./lib_utils/ft_putchar_fd.c \
+	./lib_utils/ft_toupper.c
 
 
 OBJ = $(SRCS:.c=.o)
@@ -82,7 +84,7 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc $(CFLAGS) main.c $(NAME)
+	@gcc  main.c $(NAME)
 	@./a.out
 
 debug:

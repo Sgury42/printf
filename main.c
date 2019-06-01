@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/31 18:31:43 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/01 17:49:25 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,28 @@ static int  test_x()
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %x !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %x !!\n\n\n", 444444); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#x !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %#x !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %#x !!\n\n\n", 444444); 
 
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %03x !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %03x !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %03x !!\n\n\n", 444444); 
 
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %015x !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %015x !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %015x !!\n\n\n", 444444); 
 
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 424242)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %0#15x !!\", 424242)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %0#15x !!\n\n\n", 424242); 
     printf(GREEN"[TR_PRINTF] - This is a test for %0#15x !!\n\n\n", 424242); 
 
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 15)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-15x !!\", 15)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %-15x !!\n\n\n", 15); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-15x !!\n\n\n", 15); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", 15151515)\n");
-    ft_printf(GREEN"[FT_PRINTF] - This is a test for %-#15x !!\n\n\n", 1515151515); 
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-#15x !!\", 15151515)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %-#15x !!\n\n\n", 15151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-#15x !!\n\n\n", 15151515); 
 
     printf(YEL"\n===========================\n"NC);
@@ -87,19 +87,19 @@ static int  test_X()
 
     printf(YEL"======= TEST FOR %%X =======\n\n"NC);
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %X !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %X !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %X !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %X !!\n\n\n", 444444); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#X !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#X !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %#X !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %#X !!\n\n\n", 444444); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %03X !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %03X !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %03X !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %03X !!\n\n\n", 444444); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %015X !!\", 444444)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %015X !!\", 444444)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %015X !!\n\n\n", 444444); 
     printf(GREEN"[TR_PRINTF] - This is a test for %015X !!\n\n\n", 444444); 
 
@@ -111,8 +111,8 @@ static int  test_X()
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %-15X !!\n\n\n", 15); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-15X !!\n\n\n", 15); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-#15X !!\", 15151515)\n");
-    ft_printf(GREEN"[FT_PRINTF] - This is a test for %-#15X !!\n\n\n", 1515151515); 
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-#15X !!\", 15151515)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %-#15X !!\n\n\n", 15151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-#15X !!\n\n\n", 15151515); 
 
     printf(YEL"\n===========================\n"NC);
@@ -176,14 +176,14 @@ static int  test_d()
     printf(GREEN"[TR_PRINTF] - This is a test for %-15d !!\n\n\n", 15); 
 
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %+015d !!\", 15151515)\n");
-    ft_printf(GREEN"[FT_PRINTF] - This is a test for %+015d !!\n\n\n", 1515151515); 
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %+015d !!\n\n\n", 15151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %+015d !!\n\n\n", 15151515); 
 
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %+d !!\", 15151515)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %+d !!\", 1515151515)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %+d !!\n\n\n", 1515151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %+d !!\n\n\n", 1515151515); 
     
-    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %+d !!\", 15151515)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %+d !!\", -15151515)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %+d !!\n\n\n", -1515151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %+d !!\n\n\n", -1515151515); 
 
@@ -204,7 +204,7 @@ static int  test_u()
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %0u !!\n\n\n", 1515151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %0u !!\n\n\n", 1515151515); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %012u !!\", 15151515)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %012u !!\", 15151515)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %012u !!\n\n\n", 1515151515); 
     printf(GREEN"[TR_PRINTF] - This is a test for %012u !!\n\n\n", 1515151515); 
 
@@ -333,11 +333,11 @@ static int  test_o()
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %-4llo !!\n\n\n", (long long)987654321); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-4llo !!\n\n\n", (long long)987654321); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#llo !!\", 987654321)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#llo !!\", 987654321)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %#llo !!\n\n\n", (long long)987654321); 
     printf(GREEN"[TR_PRINTF] - This is a test for %#llo !!\n\n\n", (long long)987654321); 
 
-    ft_putstr(FAIL"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#0llo !!\", 987654321)\n");
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %#0llo !!\", 987654321)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %#0llo !!\n\n\n", (long long)987654321); 
     printf(GREEN"[TR_PRINTF] - This is a test for %#0llo !!\n\n\n", (long long)987654321); 
 
@@ -358,13 +358,14 @@ static int test_p()
     b = 42;
     y = &z;
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-70p !!\", a)\n");
-    ft_printf(FAIL"[FT_PRINTF] - This is a test for %-70p !!\n", a); 
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %-70p !!\n", a); 
     printf(GREEN"[PRINTF] - This is a test for %-70p !!\n\n\n", a); 
 
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %70p !!\", a)\n");
-    ft_printf(FAIL"[FT_PRINTF] - This is a test for %70p !!\n", z); 
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %70p !!\n", z); 
     printf(GREEN"[PRINTF] - This is a test for %70p !!\n\n\n", z); 
 
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %p !!\", a)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %p !!\n", y); 
     printf(GREEN"[PRINTF] - This is a test for %p !!\n\n\n", y); 
     return (1);
