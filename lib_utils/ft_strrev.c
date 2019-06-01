@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 19:24:36 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/04/08 13:20:21 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/29 11:47:35 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "lib_utils.h"
 
-long long int		ft_get_nbr(va_list ap, t_data_tab *data)
+char	*ft_strrev(char *str)
 {
-	long long int	nbr;
+	int		i;
+	int		j;
+	char	tmp;
 
-	nbr = va_arg(ap, long long);
-	if (data->flags[hh])
-		nbr = (char)nbr;
-	else if (data->flags[h])
-		nbr = (short int)nbr;
-	else if (data->flags[l])
-		nbr = (long int)nbr;
-	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
-	return (nbr);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i <= j)
+	{
+		tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
+		i++;
+		j--;
+	}
+	return (str);
 }

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 19:24:36 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/04/07 13:27:43 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/29 11:47:11 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "lib_utils.h"
+#include <unistd.h>
 
-long long int		ft_get_nbr(va_list ap, t_data_tab *data)
+char	*ft_strnew(size_t size)
 {
-	long long int	nbr;
+	char	*str;
 
-	nbr = va_arg(ap, long long);
-	if (data->flags[hh])
-		nbr = (char)nbr;
-	else if (data->flags[h])
-		nbr = (short int)nbr;
-	else if (data->flags[l])
-		nbr = (long int)nbr;
-	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
-	return (nbr);
+	if ((str = ft_memalloc(size + 1)) == NULL)
+		return (NULL);
+	ft_bzero(str, size);
+	return (str);
 }

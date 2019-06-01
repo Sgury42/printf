@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_size_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 19:24:36 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/05/24 15:03:44 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/24 15:51:38 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long int		ft_get_nbr(va_list ap, t_data_tab *data)
+void	ft_size_error(t_data_tab *data)
 {
-	long long int	nbr;
-
-	nbr = va_arg(ap, long long);
-	if (data->flags[hh])
-		nbr = (char)nbr;
-	else if (data->flags[h])
-		nbr = (short int)nbr;
+	if (data->flags[h])
+		ft_putstr_fd("error: size 'h' should be use for type short", 2);
+	else if (data->flags[hh])
+		ft_putstr_fd("error: size 'hh' should be use for type char", 2);
 	else if (data->flags[l])
-		nbr = (long int)nbr;
-	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
-	return (nbr);
+		ft_putstr_fd("error: size 'l' should be use for type long", 2);
+	else if (data->flags[hh] == 0)
+	{
+		ft_putstr_fd("error: use [h | hh | l | ll]", 2);
+		ft_putstr_fd("if parameter is not type int", 2);
+	}
+	exit(1);
 }

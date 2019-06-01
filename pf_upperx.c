@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_x.c                                             :+:      :+:    :+:   */
+/*   pf_upperx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 15:50:59 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/31 09:59:23 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/25 14:26:06 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/31 10:00:28 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_x(va_list ap, t_data_tab *data, t_buff *buff)
+int			pf_upperx(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	unsigned long long	nbr;
 	char				*str;
+	int					i;
 
+	i = -1;
 	nbr = ft_get_unbr(ap, data);
 	if ((str = ft_itoa_base(nbr, 16)) == NULL)
 		return (-1);
+	while (str[++i])
+		str[i] = ft_toupper(str[i]);
 	if (data->flags[sign])
 		data->flags[sign] = 0;
 	if (data->flags[hashtag] && data->flags[zero])

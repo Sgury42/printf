@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/25 09:47:22 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 19:24:36 by flbeaumo         ###   ########.fr       */
+/*   Created: 2019/04/08 10:42:40 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/29 11:45:45 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "lib_utils.h"
+#include <unistd.h>
 
-long long int		ft_get_nbr(va_list ap, t_data_tab *data)
+void	ft_putstr(char const *s)
 {
-	long long int	nbr;
-
-	nbr = va_arg(ap, long long);
-	if (data->flags[hh])
-		nbr = (char)nbr;
-	else if (data->flags[h])
-		nbr = (short int)nbr;
-	else if (data->flags[l])
-		nbr = (long int)nbr;
-	else if (data->flags[ll] == 0)
-		nbr = (int)nbr;
-	return (nbr);
+	write(1, s, ft_strlen(s));
 }

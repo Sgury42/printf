@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 14:58:55 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/25 15:56:48 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 10:32:56 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ int		ft_get_unbr(va_list ap, t_data_tab *data)
 	else if (data->flags[ll] == 0)
 		nbr = (unsigned int)nbr;
 	return (nbr);
-
 }

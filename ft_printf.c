@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/23 17:29:59 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/31 10:42:11 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,20 @@ void	ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	if ((data = (t_data_tab *)malloc(sizeof(t_data_tab))) == NULL)
-		return ;
+		exit(1);
 	ft_memset(data, '\0', sizeof(t_data_tab));
 	ft_bzero(&buff, sizeof(t_buff));
 	buff.len = 0;
 	index = 0;
-	while((index = ft_parse(format, data, index, &buff)) > 0)
+	while ((index = ft_parse(format, data, index, &buff)) > 0)
 	{
 		ft_check_flags(data);
 		if (ft_dispatcher(ap, data, &buff) < 0)
-			return ;
+			exit(1);
 		ft_memset(data, '\0', sizeof(t_data_tab));
 	}
 	if (index < 0)
-	{
-		printf("index = %d\n", index);
-		return (ft_usage('z'));
-	}
+		exit(1);
 	ft_putstr(buff.buffer);
 	va_end(ap);
 	free(data);
