@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/01 16:20:58 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/02 19:51:38 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRCS =	ft_buffer.c \
 	ft_str_to_buff.c \
 	ft_width.c \
 	ft_intlen.c \
-	ft_get_str.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
 	ft_flags_display.c \
