@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/05/31 16:43:06 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/02 20:01:21 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,51 +18,51 @@ SRCS =	ft_buffer.c \
 	ft_parse.c \
 	ft_printf.c \
 	ft_str_to_buff.c \
-	ft_usage.c \
 	ft_width.c \
-	ft_size_error.c \
-	ft_itoa_base.c \
-	ft_flags_display.c \
 	ft_intlen.c \
-	pf_c.c \
-	pf_d.c \
-	pf_s.c \
-	pf_o.c \
-	pf_x.c \
-	pf_u.c \
-	pf_i.c \
-	pf_p.c \
-	pf_upperx.c \
-	pf_f.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
+	ft_flags_display.c \
+	ft_usage.c \
+	ft_itoa_base.c \
 	ft_get_color.c \
-	./libft/ft_toupper.c \
-	./libft/ft_atoi.c \
-	./libft/ft_bzero.c \
-	./libft/ft_isdigit.c \
-	./libft/ft_itoa.c \
-	./libft/ft_memset.c \
-	./libft/ft_putstr.c \
-	./libft/ft_strcmp.c \
-	./libft/ft_strdel.c \
-	./libft/ft_strdup.c \
-	./libft/ft_strlen.c \
-	./libft/ft_memdel.c \
-	./libft/ft_strnew.c \
-	./libft/ft_strrev.c \
-	./libft/ft_memalloc.c \
-	./libft/ft_putstr_fd.c \
-	./libft/ft_putchar_fd.c
+	pf_c.c \
+	pf_s.c \
+	pf_p.c \
+	pf_d.c \
+	pf_o.c \
+	pf_u.c \
+	pf_x.c \
+	pf_upperx.c \
+	pf_i.c \
+	pf_f.c \
+	pf_b.c \
+	./lib_utils/ft_atoi.c \
+	./lib_utils/ft_itoa.c \
+	./lib_utils/ft_bzero.c \
+	./lib_utils/ft_isdigit.c \
+	./lib_utils/ft_memset.c \
+	./lib_utils/ft_putstr.c \
+	./lib_utils/ft_strcmp.c \
+	./lib_utils/ft_strdel.c \
+	./lib_utils/ft_strdup.c \
+	./lib_utils/ft_strlen.c \
+	./lib_utils/ft_memdel.c \
+	./lib_utils/ft_strnew.c \
+	./lib_utils/ft_strrev.c \
+	./lib_utils/ft_memalloc.c \
+	./lib_utils/ft_putstr_fd.c \
+	./lib_utils/ft_putchar_fd.c \
+	./lib_utils/ft_toupper.c
 
 
 OBJ = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer
+CFLAGS_L = -fsanitize=address -fno-omit-frame-pointer 
 
 NC = 	 \033[0m
 RED =	 \033[0;31m
@@ -83,7 +83,7 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc $(CFLAGS) main.c $(NAME)
+	@gcc  main.c $(NAME)
 	@./a.out
 
 debug:
@@ -92,20 +92,17 @@ debug:
 
 leak:
 	@gcc $(CFLAGS) main.c $(NAME)
-	@valgrind ./a.out
-
+	@valgrind --leak-check=full ./a.out
 
 norm:
 	norminette $(SRCS_PATH) $(HEADER_PATH) $(LIB_C_PATH)
 
 clean:
 	@rm -rf $(OBJ)
-	@make clean -C ./libft/
 	@echo "$(RED) Remove Object:$(NC)			$(GREEN) [OK] $(NC)" $<
 
 fclean: clean
 	@rm -rf $(NAME)
-	@make fclean -C ./libft/ 
 	@echo "$(RED) Remove Binary:$(NC)			$(GREEN) [OK] $(NC)"
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/30 14:05:56 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/02 22:13:01 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int			float_len(long double nbr)
 	int	len;
 
 	len = 0;
-	while (nbr > 1)
+	while (nbr >= 1)
 	{
 		nbr = nbr / 10;
 		len++;

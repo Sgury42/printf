@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_color.h                                         :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 15:11:49 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/02 22:19:56 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/08 13:20:21 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/29 11:47:35 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PF_COLOR_H
-# define PF_COLOR_H
+#include "lib_utils.h"
 
-# define NB_COLOR			5
+char	*ft_strrev(char *str)
+{
+	int		i;
+	int		j;
+	char	tmp;
 
-# define RED				"\033[0;31m"
-# define GREEN				"\033[0;32m"
-# define YELLOW				"\033[1;33m"
-# define BLUE				"\033[1;34m"
-
-# define EOC				"\e[0m"
-
-const char	*g_pf_color[NB_COLOR] = {"RED", "GREEN", "YELLOW",
-	"BLUE", "EOC"};
-
-const char	*g_pf_color_define[NB_COLOR] = {RED, GREEN, YELLOW, BLUE,
-	MAGENTA, CYAN, EOC};
-
-#endif
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i <= j)
+	{
+		tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
+		i++;
+		j--;
+	}
+	return (str);
+}

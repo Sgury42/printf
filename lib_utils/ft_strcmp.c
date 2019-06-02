@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_color.h                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 15:11:49 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/02 22:19:56 by sgury            ###   ########.fr       */
+/*   Created: 2019/04/05 08:22:46 by sgury             #+#    #+#             */
+/*   Updated: 2019/04/12 11:34:48 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PF_COLOR_H
-# define PF_COLOR_H
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char	*un_s1;
+	unsigned char	*un_s2;
 
-# define NB_COLOR			5
-
-# define RED				"\033[0;31m"
-# define GREEN				"\033[0;32m"
-# define YELLOW				"\033[1;33m"
-# define BLUE				"\033[1;34m"
-
-# define EOC				"\e[0m"
-
-const char	*g_pf_color[NB_COLOR] = {"RED", "GREEN", "YELLOW",
-	"BLUE", "EOC"};
-
-const char	*g_pf_color_define[NB_COLOR] = {RED, GREEN, YELLOW, BLUE,
-	MAGENTA, CYAN, EOC};
-
-#endif
+	un_s1 = (unsigned char *)s1;
+	un_s2 = (unsigned char *)s2;
+	while (*un_s1 == *un_s2 && *un_s1 != '\0' && *un_s2 != '\0')
+	{
+		un_s1++;
+		un_s2++;
+	}
+	return (*un_s1 - *un_s2);
+}

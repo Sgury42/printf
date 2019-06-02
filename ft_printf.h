@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/31 17:26:52 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/02 20:44:10 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <stdarg.h>
 
 # define FLAGS_NB 8
-# define NB_CONV 10
+# define NB_CONV 11
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 9
+# define NB_FUNC 11
 
 enum flags 
 {
@@ -75,6 +75,7 @@ int				pf_f(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_u(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_i(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_p(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_b(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
 void			ft_usage(char conv);
 int				ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
