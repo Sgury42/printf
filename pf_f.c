@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/30 14:05:56 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/02 18:11:48 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int			float_len(long double nbr)
 }
 
 static void			str_bfr_coma(long double nbr, char *str,
-									int neg, int nbrlen)
+				int neg, int nbrlen)
 {
 	int	i;
 
@@ -43,9 +43,9 @@ static void			str_bfr_coma(long double nbr, char *str,
 static char			*get_floatstr(long double nbr, int prec)
 {
 	char	*str;
-	int		i;
-	int		neg;
-	int		nbrlen;
+	int	i;
+	int	neg;
+	int	nbrlen;
 
 	neg = 0;
 	if (nbr < 0)
@@ -82,12 +82,12 @@ static int			check_prec(t_data_tab *data)
 	return (prec);
 }
 
-int					pf_f(va_list ap, t_data_tab *data, t_buff *buff)
+int				pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long double	nbr;
 	char		*str;
-	int			prec;
-	int			neg;
+	int		prec;
+	int		neg;
 
 	neg = 0;
 	if (data->flags[L])
@@ -110,4 +110,21 @@ int					pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 	}
 	ft_strdel(&str);
 	return (0);
+}
+
+int		main(int ac, char **av)
+{
+	t_data_tab	*data;
+	t_buff		buff;
+	va_list		ap;
+
+	va_start(ap, av[1]);
+	if ((data = (t_data_tab *)malloc(sizeof(t_data_tab))) == NULL)
+		exit(1);
+	ft_memset(data, '\0', sizeof(t_data_tab));
+	ft_bzero(&buff, sizeof(t_buff));
+	pt_f(ap, data, buff);
+	ft_putstr(buff.buffer);
+	va_end(ap);
+	free(data);
 }

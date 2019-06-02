@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/01 18:20:31 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/01 19:08:55 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,7 @@ static int  test_u()
 
 static int  test_f()
 {
+	printf("DEBUG\n");
     printf(YEL"======= TEST FOR %%f =======\n\n"NC);
 
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %Lf !!\", (double)444444)\n");
