@@ -6,11 +6,11 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/02 19:58:16 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/06/03 00:36:06 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a 
+NAME = libftprintf.a 
 
 SRCS =	ft_buffer.c \
 	ft_check_flags.c \
