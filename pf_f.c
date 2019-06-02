@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/02 18:11:48 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/03 01:40:18 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,21 +110,4 @@ int				pf_f(va_list ap, t_data_tab *data, t_buff *buff)
 	}
 	ft_strdel(&str);
 	return (0);
-}
-
-int		main(int ac, char **av)
-{
-	t_data_tab	*data;
-	t_buff		buff;
-	va_list		ap;
-
-	va_start(ap, av[1]);
-	if ((data = (t_data_tab *)malloc(sizeof(t_data_tab))) == NULL)
-		exit(1);
-	ft_memset(data, '\0', sizeof(t_data_tab));
-	ft_bzero(&buff, sizeof(t_buff));
-	pt_f(ap, data, buff);
-	ft_putstr(buff.buffer);
-	va_end(ap);
-	free(data);
 }
