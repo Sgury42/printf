@@ -6,11 +6,11 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/02 19:58:16 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/06/02 23:13:29 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a 
+NAME = libftprintf.a
 
 SRCS =	ft_buffer.c \
 	ft_check_flags.c \
@@ -82,7 +82,7 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc  main.c $(NAME)
+	@gcc main.c $(NAME)
 	@./a.out
 
 debug:

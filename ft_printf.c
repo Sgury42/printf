@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/31 10:42:11 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/02 22:53:33 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	ft_printf(const char *format, ...)
 	ft_putstr(buff.buffer);
 	va_end(ap);
 	free(data);
+	exit(buff.len);
 }
