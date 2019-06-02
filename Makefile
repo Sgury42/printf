@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/03 00:36:06 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/03 01:35:31 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ $(NAME): $(OBJ)
 	@echo "\033[1A $(YELLOW)Compiling:$(BLUE) $< \033[K 	$(GREEN) [OK] $(NC)"
 
 test:
-	@gcc  main.c $(NAME)
+	@gcc main.c $(NAME)
 	@./a.out
 
 debug:
