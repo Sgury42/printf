@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 01:25:44 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/03 03:09:23 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,18 @@ void	ft_printf(const char *format, ...)
 	index = 0;
 	while ((index = ft_parse(format, data, index, &buff)) > 0)
 	{
-		ft_check_flags(data);
-		if (ft_dispatcher(ap, data, &buff) < 0)
-			exit(-1);
+		if (data->conv)
+		{
+			if (ft_dispatcher(ap, data, &buff) < 0)
+				exit(-1);
+		}
 		ft_memset(data, '\0', sizeof(t_data_tab));
 	}
 	if (index < 0)
+	{
+		printf("test return");
 		exit(-1);
+	}
 	ft_putstr(buff.buffer);
 	va_end(ap);
 	free(data);
