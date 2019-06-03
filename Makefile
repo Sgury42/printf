@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/03 03:15:58 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/03 21:13:39 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS =	ft_buffer.c \
 	ft_flags_display.c \
 	ft_usage.c \
 	ft_itoa_base.c \
+	ft_utoa_base.c \
 	pf_c.c \
 	pf_s.c \
 	pf_p.c \

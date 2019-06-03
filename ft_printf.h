@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 05:41:22 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/03 20:28:58 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int			ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
 void			ft_buffer(char c, t_buff *buff);
 void			ft_str_to_buff(char *str, t_buff *buff);
 char			*ft_itoa_base(long long int nb, int base);
+char			*ft_utoa_base(unsigned long long nb, int base);
 int			ft_intlen(long long nb);
 void			ft_putstr(char *str);
 void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
