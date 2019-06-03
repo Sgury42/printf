@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 08:35:31 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 23:13:02 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/04 00:47:26 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	c_flags(int c, t_data_tab *data, t_buff *buff)
 	int	spaces;
 
 	spaces = data->flags[width];
-	if (spaces > 1 && data->flags[just_left])
+	if (data->flags[just_left])
 	{
 		ft_buffer(c, buff);
 		while (--spaces > 0)
@@ -37,11 +37,8 @@ int			pf_c(va_list ap, t_data_tab *data, t_buff *buff)
 	int	i;
 
 	i = 0;
-	while (++i < 10)
-//		if (data->flags[i] || data->flags[precision])
-//			ft_usage('c');
 	c = va_arg(ap, int);
-	if (data->flags[width])
+	if (data->flags[width] > 1)
 		c_flags(c, data, buff);
 	else
 		ft_buffer(c, buff);

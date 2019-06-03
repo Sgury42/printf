@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 03:03:31 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 03:32:55 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/04 00:47:44 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		pf_percentage(va_list ap, t_data_tab *data, t_buff *buff)
 	{
 		while (--spaces > 0)
 			ft_buffer(' ', buff);
-		ft_buffer('$', buff);
+		ft_buffer('%', buff);
 	}
 	return (0);
 }
