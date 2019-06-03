@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/01 18:03:09 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/03 05:44:17 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,17 @@ static char	*free_str(char *str, int neg)
 
 static int	size_after_convert(long long nb, int base, int neg)
 {
-	int	size;
+	int len;
 
-	size = 0;
-	while (nb)
+	len = 0;
+	if (nb == 0)
+		return (1);
+	while (nb > 0)
 	{
-		if (neg)
-		{
-			++size;
-			neg = 0;
-		}
-		++size;
+		++len;
 		nb /= base;
 	}
-	return (size);
+	return (len);
 }
 
 char		*ft_itoa_base(long long nb, int base)
@@ -91,9 +88,3 @@ char		*ft_itoa_base(long long nb, int base)
 	str[i] = '\0';
 	return (free_str(str, neg));
 }
-
-/*int     main()*/
-/*{*/
-    /*printf("%s\n", ft_itoa_base(14, 2));*/
-    /*return (0);*/
-/*}*/
