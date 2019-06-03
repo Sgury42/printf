@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 03:32:52 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/03 05:41:22 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ typedef enum 	e_flags
 typedef struct	s_buff
 {
 	char	buffer[BUFF_SIZE];
-	int	len;
+	int		len;
+	int		ret;
 }		t_buff;
 
 typedef struct	s_data_tab
@@ -59,9 +60,9 @@ typedef struct	s_data_tab
 void			ft_bzero(void *s, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_isdigit(int c);
-void			ft_printf(const char *format, ...);
+int			ft_printf(const char *format, ...);
 int			ft_parse(const char *str, t_data_tab *data, int index, t_buff *buff);
-int			ft_buffer(char c, t_buff *buff);
+void			ft_buffer(char c, t_buff *buff);
 void			ft_str_to_buff(char *str, t_buff *buff);
 char			*ft_itoa_base(long long int nb, int base);
 int			ft_intlen(long long nb);
