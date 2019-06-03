@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/03 00:36:06 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/03 03:15:58 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS =	ft_buffer.c \
 	pf_u.c \
 	pf_x.c \
 	pf_upperx.c \
+	pf_percentage.c \
 	pf_i.c \
 	pf_f.c \
 	pf_b.c \

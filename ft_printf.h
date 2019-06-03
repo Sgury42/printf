@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/01 16:03:18 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/03 03:32:52 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include "./lib_utils/lib_utils.h"
 
 # define FLAGS_NB 9
-# define NB_CONV 10
+# define NB_CONV 12
 # define CONVERSION "sdiouxXfcp"
 # define BUFF_SIZE 4096
-# define NB_FUNC 11
+# define NB_FUNC 12
 #define FLAGS "-+ 0#Lhl"
 
 typedef enum 	e_flags
@@ -76,6 +76,7 @@ int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_u(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_upperx(va_list ap, t_data_tab *data, t_buff *buff);
+int				pf_percentage(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_f(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_b(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
