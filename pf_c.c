@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 08:35:31 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 03:14:29 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/03 23:13:02 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	c_flags(int c, t_data_tab *data, t_buff *buff)
 	int	spaces;
 
 	spaces = data->flags[width];
-	if (data->flags[just_left])
+	if (spaces > 1 && data->flags[just_left])
 	{
 		ft_buffer(c, buff);
 		while (--spaces > 0)
