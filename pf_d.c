@@ -33,6 +33,11 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 			ft_buffer('+', buff);
 		else if (data->flags[space] && str[0] != '-')
 			ft_buffer(' ', buff);
+		if (data->flags[precision] == 'z' && nbr == 0)
+		{
+			ft_strdel(&str);
+			return (0);
+		}
 		ft_str_to_buff(str, buff);
 	}
 	ft_strdel(&str);

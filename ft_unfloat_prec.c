@@ -12,13 +12,13 @@ static void	left_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 		spaces = data->flags[width] - data->flags[precision] - neg;
 	if (data->flags[width] == 0 && data->flags[space])
 		spaces = 1;
-	while (prec)
+	while (prec > 0)
 	{
 		ft_buffer('0', buff);
 		prec--;
 	}
 	ft_str_to_buff(str, buff);
-	while (spaces)
+	while (spaces > 0)
 	{
 		ft_buffer(' ', buff);
 		spaces--;
@@ -38,7 +38,7 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 		spaces = 1;
 	if (neg == 0 && data->flags[sign])
 		spaces -= 1;
-	while (spaces)
+	while (spaces > 0)
 	{
 		ft_buffer(' ', buff);
 		spaces--;
@@ -47,7 +47,7 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 		ft_buffer('-', buff);
 	else if (data->flags[sign])
 		ft_buffer('+', buff);
-	while (prec)
+	while (prec > 0)
 	{
 		ft_buffer('0', buff);
 		prec--;
@@ -62,6 +62,9 @@ void	ft_unfloat_prec(char *str, t_data_tab *data, t_buff *buff)
 	neg = 0;
 	if (str[0] == '-')
 		neg = 1;
+	if (data->flags[space])
+		if (neg || data->flags[sign])
+			data->flags[space] = 0;
 	if (data->flags[just_left])
 	{
 		if (neg)

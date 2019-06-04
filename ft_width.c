@@ -33,8 +33,8 @@ static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 
 	neg = 0;
 	spaces = data->flags[width] - ft_strlen(str);
-//	if (data->flags[sign])
-//		spaces += data->flags[zero];
+	if (data->flags[sign] && str[0] != '-')
+		spaces -= 1;
 	c = ' ';
 	if (data->flags[zero])
 		c = '0';
