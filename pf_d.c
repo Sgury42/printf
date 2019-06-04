@@ -15,24 +15,24 @@
 int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long long int	nbr;
-	char			*str;
-	int				neg;
+	char		*str;
 
-	neg = 0;
 	nbr = ft_get_nbr(ap, data);
-	if (nbr < 0)
-		neg = 1;
 	if ((str = ft_itoa(nbr)) == NULL)
 		return (-1);
 	if (data->flags[width] <= (int)ft_strlen(str))
 		data->flags[width] = 0;
-	ft_flags_display(neg, data, buff);
-	if (data->flags[width])
-		ft_width(str + neg, data, buff);
+	if (data->flags[precision] != 'z'
+			&& data->flags[precision] >= (int)ft_strlen(str))
+		ft_unfloat_prec(str, data, buff);
+	else if (data->flags[width])
+		ft_width(str, data, buff);
 	else
 	{
-		if (data->flags[sign] && neg == 0)
+		if (data->flags[sign] && str[0] != '-')
 			ft_buffer('+', buff);
+		else if (data->flags[space] && str[0] != '-')
+			ft_buffer(' ', buff);
 		ft_str_to_buff(str, buff);
 	}
 	ft_strdel(&str);

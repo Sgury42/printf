@@ -27,36 +27,44 @@ static void	hashtag_flag(t_data_tab *data, t_buff *buff)
 
 static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 {
-	int		spaces;
+	int	spaces;
 	char	c;
+	int	neg;
 
-	spaces = data->flags[width] - ft_strlen(str) - data->flags[sign];
-	if (data->flags[sign])
-		spaces += data->flags[zero];
+	neg = 0;
+	spaces = data->flags[width] - ft_strlen(str);
+//	if (data->flags[sign])
+//		spaces += data->flags[zero];
 	c = ' ';
 	if (data->flags[zero])
 		c = '0';
+	if (c == '0')
+	{
+		if (str[0] == '-')
+		{
+			ft_buffer('-', buff);
+			neg = 1;
+		}
+		else if (data->flags[sign])
+			ft_buffer('+', buff);
+	}
 	while (spaces > 0)
 	{
 		ft_buffer(c, buff);
 		spaces--;
 	}
-	if (data->flags[sign] && c != '0')
+	if (data->flags[sign] && c != '0' && str[0] != '-')
 		ft_buffer('+', buff);
 	if (data->flags[hashtag] || data->conv == 'p')
 		hashtag_flag(data, buff);
-	ft_str_to_buff(str, buff);
+	ft_str_to_buff(str + neg, buff);
 }
 
 static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
 {
-	int	flag_sign;
 	int	spaces;
 
-	flag_sign = data->flags[sign];
-	spaces = data->flags[width] - ft_strlen(str) - flag_sign;
-	if (flag_sign)
-		ft_buffer('+', buff);
+	spaces = data->flags[width] - ft_strlen(str) - data->flags[sign];
 	if (data->flags[hashtag])
 		hashtag_flag(data, buff);
 	ft_str_to_buff(str, buff);
@@ -73,6 +81,8 @@ void		ft_width(char *str, t_data_tab *data, t_buff *buff)
 	{
 		if (data->conv == 'p')
 			ft_str_to_buff("0x", buff);
+		if (data->flags[sign] && str[0] != '-')
+			ft_buffer('+', buff);
 		justify_left(str, data, buff);
 	}
 	else

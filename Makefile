@@ -26,6 +26,7 @@ SRCS =	ft_buffer.c \
 	ft_usage.c \
 	ft_itoa_base.c \
 	ft_utoa_base.c \
+	ft_unfloat_prec.c \
 	pf_c.c \
 	pf_s.c \
 	pf_p.c \

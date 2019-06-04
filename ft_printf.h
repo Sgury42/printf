@@ -89,5 +89,6 @@ char			*ft_get_str(va_list ap, t_data_tab *data);
 long long int		ft_get_nbr(va_list ap, t_data_tab *data);
 int			ft_get_unbr(va_list ap, t_data_tab *data);
 void			ft_size_error(t_data_tab *data);
+void			ft_unfloat_prec(char *str, t_data_tab *data, t_buff *buff);
 
 #endif
