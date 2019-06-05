@@ -12,22 +12,62 @@
 
 #include "ft_printf.h"
 
+static void	str_prec(char *str, int len, t_buff *buff)
+{
+	int	i;
+
+	i = 0;
+	if (len == 'z')
+		len = 0;
+	while (str[i] && i < len)
+		ft_buffer(str[i++], buff);
+}
+
+static void	str_width(char *str, t_data_tab *data, t_buff *buff)
+{
+	int	spaces;
+
+	if (data->flags[precision] && data->flags[precision] < (int)ft_strlen(str))
+		spaces = data->flags[width] - data->flags[precision];
+	else
+		spaces = data->flags[width] - ft_strlen(str);
+	if (data->flags[just_left])
+	{
+		if (data->flags[precision])
+			str_prec(str, data->flags[precision], buff);
+		else
+			ft_str_to_buff(str, buff);
+		while (spaces-- > 0)
+			ft_buffer(' ', buff);
+	}
+	else
+	{
+		while (spaces-- > 0)
+			ft_buffer(' ', buff);
+		if (data->flags[precision])
+			str_prec(str, data->flags[precision], buff);
+		else
+			ft_str_to_buff(str, buff);
+	}
+}
+
 int		pf_s(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
-	str = va_arg(ap, char *);
+	if ((str = va_arg(ap, char *)) == NULL)
+		str = "(null)";
 	if ((str = ft_strdup(str)) == NULL)
 		return (-1);
-	while (++i < 10)
-		if (data->flags[i] || data->flags[precision])
-			ft_usage('s');
 	if (data->flags[width])
-		ft_width(str, data, buff);
+		str_width(str, data, buff);
 	else
-		ft_str_to_buff(str, buff);
+	{
+		if (data->flags[precision])
+			str_prec(str, data->flags[precision], buff);
+		else
+			ft_str_to_buff(str, buff);
+	}
 	ft_strdel(&str);
 	return (0);
 }
