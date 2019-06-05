@@ -13,7 +13,6 @@
 NAME = libftprintf.a 
 
 SRCS =	ft_buffer.c \
-	ft_check_flags.c \
 	ft_dispatcher.c \
 	ft_parse.c \
 	ft_printf.c \
@@ -23,10 +22,9 @@ SRCS =	ft_buffer.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
 	ft_flags_display.c \
-	ft_usage.c \
 	ft_itoa_base.c \
 	ft_utoa_base.c \
-	ft_unfloat_prec.c \
+	ft_precision.c \
 	pf_c.c \
 	pf_s.c \
 	pf_p.c \

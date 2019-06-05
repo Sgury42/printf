@@ -55,7 +55,7 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 	ft_str_to_buff(str + neg, buff);
 }
 
-void	ft_unfloat_prec(char *str, t_data_tab *data, t_buff *buff)
+void	ft_precision(char *str, t_data_tab *data, t_buff *buff)
 {
 	int	neg;
 

@@ -82,13 +82,11 @@ int				pf_percentage(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_f(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_b(va_list ap, t_data_tab *data, t_buff *buff);
 void			ft_width(char *str, t_data_tab *data, t_buff *buff);
-void			ft_usage(char conv);                                          //!!!!!! to delete !!!!!!!!
 int			ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff);
-void			ft_check_flags(t_data_tab *data);
 char			*ft_get_str(va_list ap, t_data_tab *data);
 long long int		ft_get_nbr(va_list ap, t_data_tab *data);
 unsigned long long int			ft_get_unbr(va_list ap, t_data_tab *data);
 void			ft_size_error(t_data_tab *data);
-void			ft_unfloat_prec(char *str, t_data_tab *data, t_buff *buff);
+void			ft_precision(char *str, t_data_tab *data, t_buff *buff);
 
 #endif

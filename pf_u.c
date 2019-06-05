@@ -24,7 +24,7 @@ int		pf_u(va_list ap, t_data_tab *data, t_buff *buff)
 		data->flags[width] = 0;
 	if (data->flags[precision] != 'z'
 			&& data->flags[precision] >= (int)ft_strlen(str))
-		ft_unfloat_prec(str, data, buff);
+		ft_precision(str, data, buff);
 	else if (data->flags[width])
 		ft_width(str, data, buff);
 	else
