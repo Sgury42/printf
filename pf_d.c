@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/05/30 13:40:11 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/05 23:22:15 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long long int	nbr;
-	char		*str;
+	char			*str;
 
 	nbr = ft_get_nbr(ap, data);
 	if ((str = ft_itoa(nbr)) == NULL)
