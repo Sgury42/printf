@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-int		ft_get_unbr(va_list ap, t_data_tab *data)
+unsigned long long int		ft_get_unbr(va_list ap, t_data_tab *data)
 {
 	unsigned long long int	nbr;
 
-	nbr = va_arg(ap, unsigned long long);
+	nbr = va_arg(ap, unsigned long long int);
 	if (data->flags[hh])
 		nbr = (unsigned char)nbr;
 	else if (data->flags[h])

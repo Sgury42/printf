@@ -14,21 +14,30 @@
 
 int		pf_u(va_list ap, t_data_tab *data, t_buff *buff)
 {
-	unsigned long long	nbr;
-	char				*str;
+	unsigned long long int	nbr;
+	char			*str;
 
 	nbr = ft_get_unbr(ap, data);
-	if ((str = ft_itoa((long long)nbr)) == NULL)
+	if ((str = ft_itoa(nbr)) == NULL)
 		return (-1);
 	if (data->flags[width] <= (int)ft_strlen(str))
 		data->flags[width] = 0;
-	ft_flags_display(0, data, buff);
-	if (data->flags[width])
+	if (data->flags[precision] != 'z'
+			&& data->flags[precision] >= (int)ft_strlen(str))
+		ft_unfloat_prec(str, data, buff);
+	else if (data->flags[width])
 		ft_width(str, data, buff);
 	else
 	{
 		if (data->flags[sign])
 			ft_buffer('+', buff);
+		else if (data->flags[space])
+			ft_buffer(' ', buff);
+		if (data->flags[precision] == 'z' && nbr == 0)
+		{
+			ft_strdel(&str);
+			return (0);
+		}
 		ft_str_to_buff(str, buff);
 	}
 	ft_strdel(&str);
