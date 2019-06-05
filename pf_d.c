@@ -20,6 +20,8 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 	nbr = ft_get_nbr(ap, data);
 	if ((str = ft_itoa(nbr)) == NULL)
 		return (-1);
+	if (nbr == 0 && data->flags[precision] == 'z')
+		str[0] = ' ';
 	if (data->flags[width] <= (int)ft_strlen(str))
 		data->flags[width] = 0;
 	if (data->flags[precision] != 'z'

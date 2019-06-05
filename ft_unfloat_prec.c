@@ -32,7 +32,7 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 
 	spaces = 0;
 	prec = data->flags[precision] - (int)ft_strlen(str) + neg;
-	if (data->flags[width] >data->flags[precision])
+	if (data->flags[width] > data->flags[precision])
 		spaces = data->flags[width] - data->flags[precision] - neg;
 	if (data->flags[width] == 0 && data->flags[space])
 		spaces = 1;
