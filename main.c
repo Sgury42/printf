@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/01 17:49:25 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/05 01:26:24 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,14 @@ static int  test_x()
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-15x !!\", 15)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %-15x !!\n\n\n", 15); 
     printf(GREEN"[TR_PRINTF] - This is a test for %-15x !!\n\n\n", 15); 
+
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %15x !!\", -15)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %15x !!\n\n\n", -15); 
+    printf(GREEN"[TR_PRINTF] - This is a test for %15x !!\n\n\n", -15); 
+
+    ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %x !!\", -154234)\n");
+    ft_printf(GREEN"[FT_PRINTF] - This is a test for %x !!\n\n\n", -154234); 
+    printf(GREEN"[TR_PRINTF] - This is a test for %x !!\n\n\n", -154234); 
 
     ft_putstr(GOOD"[TEST] ft_printf(GREEN\"[FT_PRINTF] - This is a test for %-#15x !!\", 15151515)\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %-#15x !!\n\n\n", 15151515); 
