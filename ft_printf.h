@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/05 22:23:29 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/07 11:20:58 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void			ft_str_to_buff(char *str, t_buff *buff);
 char			*ft_itoa_base(long long int nb, int base);
 char			*ft_utoa_base(unsigned long long nb, int base);
 int			ft_intlen(long long nb);
+void			ft_unflag(t_data_tab *data);
 void			ft_putstr(char *str);
 void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
 int			pf_c(va_list ap, t_data_tab *data, t_buff *buff);

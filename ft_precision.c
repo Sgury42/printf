@@ -6,11 +6,17 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 23:34:36 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/05 23:34:47 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/07 12:49:35 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	conv_x(char x, t_buff *buff)
+{
+	ft_buffer('0', buff);
+	ft_buffer(x, buff);
+}
 
 static void	left_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 {
@@ -23,6 +29,8 @@ static void	left_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 		spaces = data->flags[width] - data->flags[precision] - neg;
 	if (data->flags[width] == 0 && data->flags[space])
 		spaces = 1;
+	if ((data->conv == 'x' || data->conv == 'X') && data->flags[hashtag])
+		conv_x(data->conv, buff);
 	while (prec > 0)
 	{
 		ft_buffer('0', buff);
@@ -58,6 +66,8 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 		ft_buffer('-', buff);
 	else if (data->flags[sign])
 		ft_buffer('+', buff);
+	if ((data->conv == 'x' || data->conv == 'X') && data->flags[hashtag])
+		conv_x(data->conv, buff);
 	while (prec > 0)
 	{
 		ft_buffer('0', buff);

@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:50:59 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/06 00:51:27 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/07 13:34:41 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,26 @@ int		pf_x(va_list ap, t_data_tab *data, t_buff *buff)
 	nbr = ft_get_unbr(ap, data);
 	if ((str = ft_itoa_base(nbr, 16)) == NULL)
 		return (-1);
-	if (data->flags[sign])
-		data->flags[sign] = 0;
-	if (data->flags[width] && (data->flags[width] > (int)ft_strlen(str)))
+	ft_unflag(data);
+	if (nbr == 0 && data->flags[precision] == 'z')
+	{
+		if (data->flags[width] == 0)
+			str[0] = '\0';
+		else
+			str[0] = ' ';
+		data->flags[hashtag] = 0;
+	}
+	if (data->flags[hashtag])
+		data->flags[width] -= 2;
+	if (data->flags[width] <= (int)ft_strlen(str))
+		data->flags[width] = 0;
+	if (data->flags[precision] != 'z'
+			&& data->flags[precision] >= (int)ft_strlen(str))
+		ft_precision(str, data, buff);
+	else if (data->flags[width])
 	{
 		if (data->flags[hashtag] && data->flags[zero])
-		{
 			ft_str_to_buff("0x", buff);
-			data->flags[width] -= 2;
-		}
 		ft_width(str, data, buff);
 	}
 	else
