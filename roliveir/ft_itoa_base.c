@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/07 03:23:30 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/08 21:33:09 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ static char	val(int nb)
 	return (nb >= 0 && nb <= 9 ? nb + '0' : nb - 10 + 'a');
 }
 
-
 static int	size_after_convert(long long nb, int base, int neg)
 {
 	int len;
@@ -120,6 +119,8 @@ static int	size_after_convert(long long nb, int base, int neg)
 	len = 0;
 	if (nb == 0)
 		return (1);
+	if (neg)
+		++len;		
 	while (nb > 0)
 	{
 		++len;
@@ -157,10 +158,4 @@ char		*ft_itoa_base(long long nb, int base)
 		return (b_neg(str, len));
 	str[i] = '\0';
 	return (str = reverse(str, neg));
-}
-
-int main()
-{
-	printf("TEST --> %s\n", ft_itoa_base(4, 2));
-	printf("TEST '-' --> %s\n", ft_itoa_base(-4, 2));
 }

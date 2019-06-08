@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/07 00:28:38 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/08 21:44:51 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char		*min_ll_int(unsigned long long nbr)
 		return (NULL);
 	s2 = ft_strjoin("-", s1);
 	ft_strdel(&s1);
-	return (s1);
+	return (s2);
 }
 
 int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
@@ -31,7 +31,7 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 
 	nbr = ft_get_nbr(ap, data);
 	if ((unsigned long long)nbr - 1 == 9223372036854775807)
-		min_ll_int(nbr);
+		str = min_ll_int(nbr);
 	else
 	{
 		if ((str = ft_itoa(nbr)) == NULL)

@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 14:38:46 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/05 01:26:24 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/08 21:57:50 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@
 
 static int     test_c()
 {
-    ft_printf(YEL"======= TEST FOR %%c =======\n\n"NC);
+	ft_printf("hello");
+   // ft_printf("%lld\n", -9223372036854775808);
+   /* ft_printf(YEL"======= TEST FOR %%c =======\n\n"NC);
 
     ft_putstr(GOOD"[TEST] - ft_printf(\"This is a test for %c !!\", \'H\')\n");
     ft_printf(GREEN"[FT_PRINTF] - This is a test for %c !!\n\n\n", 'H'); 
     printf(GREEN"[TR_PRINTF] - This is a test for %c !!\n\n\n", 'H'); 
-
     ft_putstr(GOOD"[TEST] ft_printf(\"[FT_PRINTF RESULT] %7c !!\", \'H\')\n");
     ft_printf(GREEN"[TR_PRINTF] %7c !!\n\n\n", 'H'); 
     printf(GREEN"[TR_PRINTF] %7c !!\n\n\n", 'H'); 
@@ -41,7 +42,7 @@ static int     test_c()
     ft_printf(GREEN"[FT_PRINTF] %-23c !!\n\n\n", 'H'); 
     printf(GREEN"[TR_PRINTF] %-23c !!\n\n\n", 'H'); 
 
-    printf(YEL"\n===========================\n"NC);
+    printf(YEL"\n===========================\n"NC);*/
     return (1);
 }
 
@@ -386,7 +387,7 @@ int     main(void)
     c = 0;
     while (c != 'q')
     {
-        ft_printf("Conversion a tester: (press 'q' for quit, press 'D' for clear)\n");
+       // ft_printf("Conversion a tester: (press 'q' for quit, press 'D' for clear)\n");
         read(0, &c, 2);   
         system("clear");
 
