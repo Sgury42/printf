@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/06 23:03:25 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/06/08 22:23:43 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS =	ft_buffer.c \
 	ft_utoa_base.c \
 	ft_precision.c \
 	ft_get_float.c \
+	ft_unflag.c \
 	ft_ftoa.c \
 	pf_c.c \
 	pf_s.c \
@@ -36,7 +37,6 @@ SRCS =	ft_buffer.c \
 	pf_x.c \
 	pf_upperx.c \
 	pf_percentage.c \
-	pf_i.c \
 	pf_f.c \
 	pf_b.c \
 	./lib_utils/ft_atoi.c \
