@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:44:35 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/06 01:37:39 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/08 23:56:58 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,20 @@
 	/*return (str = get_base(nb, str, base, neg));*/
 /*}*/
 
-static char	*reverse(char *str, int neg)
+static char	*b_neg(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] == '1' ? (str[i] = '0') : (str[i] = '1');
+		++i;
+	}
+	return (str);
+}
+
+static char	*reverse(char *str, int neg, int base)
 {
 	char	tmp;
 	int		i;
@@ -78,7 +91,7 @@ static char	*reverse(char *str, int neg)
 
 	i = ft_strlen(str);
 	j = 0;
-	if (neg)
+	if (neg && base == 10)
 		j = 1;
 	--i;
 	while (i > j)
@@ -89,6 +102,8 @@ static char	*reverse(char *str, int neg)
 		--i;
 		++j;
 	}
+	if (base == 2 && neg)
+		return (b_neg(str));
 	return (str);
 }
 
@@ -122,22 +137,26 @@ char		*ft_itoa_base(long long nb, int base)
 
 	i = 0;
 	neg = 0;
-	len = size_after_convert(nb, base);
+	len = 0;
+	if (base != 2)
+		len = size_after_convert(nb, base);
 	if (nb < 0)
 	{
 		neg = 1;
 		nb *= -1;
-		++i;
 	}
-	if ((str = (char *)malloc(sizeof(char) * (len + 1))) == NULL)
+	if (base == 2)
+		len = size_after_convert(nb, base);
+	if ((str = ft_strnew(len + neg)) == NULL)
 		return (NULL);
-	if (neg)
-		str[0] = '-';
-	while (i < (len + neg))
+	if (neg && base == 10)
+		str[i++] = '-';
+	if (base == 10 && neg)
+		len++;
+	while (i < len)
 	{
 		str[i++] = val(nb % base);
 		nb /= base;
 	}
-	str[i] = '\0';
-	return (str = reverse(str, neg));
+	return (reverse(str, neg, base));
 }
