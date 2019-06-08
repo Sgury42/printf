@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 11:46:09 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/29 11:59:22 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/06 21:41:59 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_utils.h"
 
-static int		ft_int_len(long long int n)
+static int		ft_int_len(long long n)
 {
 	int	len;
 
@@ -27,7 +27,7 @@ static int		ft_int_len(long long int n)
 	return (len);
 }
 
-static char		*ft_fill_str(char *str, int len, long long int nbr, int neg)
+static char		*ft_fill_str(char *str, int len, long long nbr, int neg)
 {
 	int	i;
 
@@ -43,12 +43,12 @@ static char		*ft_fill_str(char *str, int len, long long int nbr, int neg)
 	return (str);
 }
 
-char			*ft_itoa(long long int n)
+char			*ft_itoa(long long n)
 {
 	char	        *str;
 	int		n_len;
 	int		neg;
-	long long int	nbr;
+	long long	nbr;
 
 	neg = 0;
 	nbr = n;
