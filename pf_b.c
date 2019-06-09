@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 21:24:12 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/08 21:27:28 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/08 23:20:53 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		pf_b(va_list ap, t_data_tab *data, t_buff *buff)
 {
-	unsigned long long	nbr;
-	char				*str;
+	long long	nbr;
+	char		*str;
 
-	nbr = ft_get_unbr(ap, data);
+	nbr = ft_get_nbr(ap, data);
 	if ((str = ft_itoa_base(nbr, 2)) == NULL)
 		return (-1);
 	if (data->flags[hashtag])
