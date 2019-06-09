@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/09 17:51:31 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/09 18:13:59 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void			ft_str_to_buff(char *str, t_buff *buff);
 char			*ft_itoa_base(long long int nb, int base);
 char			*ft_utoa_base(unsigned long long nb, int base);
 int			ft_intlen(long long nb);
-void			ft_unflag(t_data_tab *data);
 void			ft_putstr(char *str);
 void			ft_flags_display(int neg, t_data_tab *data, t_buff *buff);
 int			pf_c(va_list ap, t_data_tab *data, t_buff *buff);
@@ -77,7 +76,6 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff);
 int			pf_o(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_u(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_x(va_list ap, t_data_tab *data, t_buff *buff);
-int				pf_upperx(va_list ap, t_data_tab *data, t_buff *buff);
 int				pf_percentage(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_f(va_list ap, t_data_tab *data, t_buff *buff);
 int  			pf_b(va_list ap, t_data_tab *data, t_buff *buff);

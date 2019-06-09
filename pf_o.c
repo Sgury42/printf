@@ -6,21 +6,16 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 17:49:55 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/07 13:32:51 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 17:50:36 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_o(va_list ap, t_data_tab *data, t_buff *buff)
+static void	checkflags_o(char *str, unsigned long long nbr, t_data_tab *data)
 {
-	unsigned long long	nbr;
-	char				*str;
-
-	nbr = ft_get_unbr(ap, data);
-	if ((str = ft_itoa_base(nbr, 8)) == NULL)
-		return (-1);
-	ft_unflag(data);
+	if (data->flags[sign])
+		data->flags[sign] = 0;
 	if (nbr == 0 && data->flags[precision] == 'z')
 	{
 		if (data->flags[hashtag] == 0)
@@ -31,6 +26,17 @@ int		pf_o(va_list ap, t_data_tab *data, t_buff *buff)
 	}
 	if (data->flags[width] <= (int)ft_strlen(str))
 		data->flags[width] = 0;
+}
+
+int			pf_o(va_list ap, t_data_tab *data, t_buff *buff)
+{
+	unsigned long long	nbr;
+	char				*str;
+
+	nbr = ft_get_unbr(ap, data);
+	if ((str = ft_itoa_base(nbr, 8)) == NULL)
+		return (-1);
+	checkflags_o(str, nbr, data);
 	if (data->flags[precision] != 'z'
 			&& data->flags[precision] >= (int)ft_strlen(str))
 		ft_precision(str, data, buff);

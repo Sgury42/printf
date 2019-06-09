@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/08 21:44:51 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/09 18:18:03 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,43 @@ static char		*min_ll_int(unsigned long long nbr)
 	return (s2);
 }
 
-int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
+static int		checkflags_d(char *str, long long int nbr,
+		t_data_tab *data, t_buff *buff)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr == 0 && data->flags[precision] == 'z')
+		str[0] = ' ';
+	if (data->flags[width] <= (int)ft_strlen(str))
+		data->flags[width] = 0;
+	if (data->flags[precision] != 'z'
+			&& data->flags[precision] >= (int)ft_strlen(str))
+	{
+		ft_precision(str, data, buff);
+		ret = 1;
+	}
+	else if (data->flags[width] > (int)ft_strlen(str))
+	{
+		ft_width(str, data, buff);
+		ret = 1;
+	}
+	return (ret);
+}
+
+static void		sign_d(char *str, t_data_tab *data, t_buff *buff)
+{
+	if (data->flags[sign] && str[0] != '-')
+		ft_buffer('+', buff);
+	else if (data->flags[space] && str[0] != '-')
+		ft_buffer(' ', buff);
+}
+
+int				pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	long long int	nbr;
-	char		*str;
+	char			*str;
+	int				ret;
 
 	nbr = ft_get_nbr(ap, data);
 	if ((unsigned long long)nbr - 1 == 9223372036854775807)
@@ -37,21 +70,10 @@ int			pf_d(va_list ap, t_data_tab *data, t_buff *buff)
 		if ((str = ft_itoa(nbr)) == NULL)
 			return (-1);
 	}
-	if (nbr == 0 && data->flags[precision] == 'z')
-		str[0] = ' ';
-	if (data->flags[width] <= (int)ft_strlen(str))
-		data->flags[width] = 0;
-	if (data->flags[precision] != 'z'
-			&& data->flags[precision] >= (int)ft_strlen(str))
-		ft_precision(str, data, buff);
-	else if (data->flags[width])
-		ft_width(str, data, buff);
-	else
+	ret = checkflags_d(str, nbr, data, buff);
+	if (ret == 0)
 	{
-		if (data->flags[sign] && str[0] != '-')
-			ft_buffer('+', buff);
-		else if (data->flags[space] && str[0] != '-')
-			ft_buffer(' ', buff);
+		sign_d(str, data, buff);
 		if (data->flags[precision] == 'z' && nbr == 0)
 		{
 			ft_strdel(&str);

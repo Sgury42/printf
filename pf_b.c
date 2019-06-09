@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 21:24:12 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/08 21:27:28 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 18:15:14 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		pf_b(va_list ap, t_data_tab *data, t_buff *buff)
 		return (-1);
 	if (data->flags[hashtag])
 		data->flags[hashtag] = 0;
-	ft_unflag(data);
+	if (data->flags[sign])
+		data->flags[sign] = 0;
 	if (data->flags[width] > (int)ft_strlen(str))
 		ft_width(str, data, buff);
 	else

@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:50:59 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/09 14:28:29 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 17:20:19 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*upper_x(char *str)
 	return (str);
 }
 
-static void	checkflags_x(char *str, unsigned long long nbr, t_data_tab	*data)
+static void	checkflags_x(char *str, unsigned long long nbr, t_data_tab *data)
 {
 	if (data->flags[sign])
 		data->flags[sign] = 0;

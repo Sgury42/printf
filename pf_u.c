@@ -6,13 +6,21 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 18:22:40 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/08 22:08:32 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 17:49:13 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_u(va_list ap, t_data_tab *data, t_buff *buff)
+static void	checkflags_u(t_data_tab *data, t_buff *buff)
+{
+	if (data->flags[sign])
+		ft_buffer('+', buff);
+	else if (data->flags[space])
+		ft_buffer(' ', buff);
+}
+
+int			pf_u(va_list ap, t_data_tab *data, t_buff *buff)
 {
 	unsigned long long int	nbr;
 	char					*str;
@@ -29,10 +37,7 @@ int		pf_u(va_list ap, t_data_tab *data, t_buff *buff)
 		ft_width(str, data, buff);
 	else
 	{
-		if (data->flags[sign])
-			ft_buffer('+', buff);
-		else if (data->flags[space])
-			ft_buffer(' ', buff);
+		checkflags_u(data, buff);
 		if (data->flags[precision] == 'z' && nbr == 0)
 		{
 			ft_strdel(&str);
