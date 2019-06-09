@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 23:33:26 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/09 23:10:03 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_printf(const char *format, ...)
 {
 	t_data_tab	data;
 	t_buff		buff;
-	int		index;
+	int			index;
 	va_list		ap;
 
 	va_start(ap, format);

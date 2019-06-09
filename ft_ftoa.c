@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 21:42:49 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/05 23:13:57 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 21:31:44 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_len_bfr_coma(long double nbr)
 	len = 0;
 	while (nbr >= 1)
 	{
-		nbr = nbr/10;
+		nbr = nbr / 10;
 		len++;
 	}
 	return (len);
@@ -53,7 +53,18 @@ static void	str_bfr_coma(long double nbr, char *str, int len, int neg)
 	}
 }
 
-char	*ft_ftoa(long double nbr, t_data_tab *data)
+static char	*ft_ftoa_core(long double nbr, char *str, int prec, int i)
+{
+	while (prec > 0)
+	{
+		nbr *= 10;
+		str[i++] = (int)nbr % 10 + '0';
+		prec--;
+	}
+	return (str);
+}
+
+char		*ft_ftoa(long double nbr, t_data_tab *data)
 {
 	char	*str;
 	int		len_bfr_coma;
@@ -77,11 +88,5 @@ char	*ft_ftoa(long double nbr, t_data_tab *data)
 		i++;
 	if (prec > 0)
 		str[i++] = '.';
-	while (prec > 0)
-	{
-		nbr *= 10;
-		str[i++] = (int)nbr % 10 + '0';
-		prec--;
-	}
-	return (str);
+	return (ft_ftoa_core(nbr, str, prec, i));
 }

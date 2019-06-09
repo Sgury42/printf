@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 16:00:02 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 05:40:25 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/09 21:08:20 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_buffer(char c, t_buff *buff)
+void	ft_buffer(char c, t_buff *buff)
 {
 	if (c == '\n')
 	{

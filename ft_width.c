@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/07 12:02:50 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 00:08:21 by flbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,22 @@ static void	hashtag_flag(t_data_tab *data, t_buff *buff)
 		ft_str_to_buff("0x", buff);
 }
 
+static void	right_core(t_data_tab *data, t_buff *buff, int *neg, char **str)
+{
+	if (*str[0] == '-')
+	{
+		ft_buffer('-', buff);
+		*neg = 1;
+	}
+	else if (data->flags[sign])
+		ft_buffer('+', buff);
+}
+
 static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 {
-	int	spaces;
+	int		spaces;
 	char	c;
-	int	neg;
+	int		neg;
 
 	neg = 0;
 	spaces = data->flags[width] - ft_strlen(str);
@@ -39,15 +50,7 @@ static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 	if (data->flags[zero] && data->flags[precision] != 'z')
 		c = '0';
 	if (c == '0')
-	{
-		if (str[0] == '-')
-		{
-			ft_buffer('-', buff);
-			neg = 1;
-		}
-		else if (data->flags[sign])
-			ft_buffer('+', buff);
-	}
+		right_core(data, buff, &neg, &str);
 	while (spaces > 0)
 	{
 		ft_buffer(c, buff);

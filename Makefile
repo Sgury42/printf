@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/09 18:27:05 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/09 20:04:50 by flbeaumo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	ft_buffer.c \
 	ft_get_nbr.c \
 	ft_get_unbr.c \
 	ft_itoa_base.c \
+	reverse_base.c \
 	ft_precision.c \
 	ft_get_float.c \
 	ft_ftoa.c \
