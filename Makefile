@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/10 10:51:54 by sgury            ###   ########.fr        #
+#    Updated: 2019/06/10 19:09:04 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS =	ft_buffer.c \
 	ft_precision.c \
 	ft_get_float.c \
 	ft_ftoa.c \
+	ft_get_color.c \
 	pf_c.c \
 	pf_s.c \
 	pf_p.c \

@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:11:49 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/02 22:19:56 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 19:25:52 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,5 @@
 
 const char	*g_pf_color[NB_COLOR] = {"RED", "GREEN", "YELLOW",
 	"BLUE", "EOC"};
-
-const char	*g_pf_color_define[NB_COLOR] = {RED, GREEN, YELLOW, BLUE,
-	MAGENTA, CYAN, EOC};
 
 #endif
