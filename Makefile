@@ -6,7 +6,7 @@
 #    By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/23 12:59:31 by flbeaumo          #+#    #+#              #
-#    Updated: 2019/06/09 20:04:50 by flbeaumo         ###   ########.fr        #
+#    Updated: 2019/06/10 10:51:54 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,6 @@ SRCS =	ft_buffer.c \
 	./lib_utils/ft_strnew.c \
 	./lib_utils/ft_strrev.c \
 	./lib_utils/ft_memalloc.c \
-	./lib_utils/ft_putstr_fd.c \
-	./lib_utils/ft_putchar_fd.c \
 	./lib_utils/ft_toupper.c
 
 

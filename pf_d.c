@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/09 18:18:03 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 10:39:52 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static char		*min_ll_int(unsigned long long nbr)
 
 	if ((s1 = ft_utoa(nbr)) == NULL)
 		return (NULL);
-	s2 = ft_strjoin("-", s1);
+	if ((s2 = ft_strjoin("-", s1)) == NULL)
+		return (NULL);
 	ft_strdel(&s1);
 	return (s2);
 }
