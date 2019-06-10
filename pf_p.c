@@ -6,13 +6,13 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 14:38:41 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/09 18:19:27 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:38:35 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_p(va_list ap, t_data_tab *data, t_buff *buff)
+int		pf_p(va_list ap, t_data *data, t_buff *buff)
 {
 	long long	nbr;
 	char		*str;

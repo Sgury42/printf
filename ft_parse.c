@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/03 03:32:59 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:34:27 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_get_int(const char *str, t_data_tab *data, int index)
+static int		ft_get_int(const char *str, t_data *data, int index)
 {
 	int	nbr;
 	int	prec;
@@ -41,7 +41,7 @@ static int		ft_get_int(const char *str, t_data_tab *data, int index)
 	return (index);
 }
 
-static int		ft_get_flag(const char *str, t_data_tab *data, int index)
+static int		ft_get_flag(const char *str, t_data *data, int index)
 {
 	static char	flags_char[FLAGS_NB] = {'-', '+', ' ',
 		'0', '#', 'L', 'h', 'l'};
@@ -64,8 +64,7 @@ static int		ft_get_flag(const char *str, t_data_tab *data, int index)
 	return (++index);
 }
 
-static int		ft_get_data(const char *str, t_data_tab *data,
-							int index)
+static int		ft_get_data(const char *str, t_data *data, int index)
 {
 	static char	conv[NB_CONV] = "sdiouxXfcpb%";
 	int			i;
@@ -86,8 +85,8 @@ static int		ft_get_data(const char *str, t_data_tab *data,
 	return (++index);
 }
 
-int				ft_parse(const char *str, t_data_tab *data,
-							int index, t_buff *buff)
+int				ft_parse(const char *str, t_data *data, int index,
+		t_buff *buff)
 {
 	int	no_conv;
 

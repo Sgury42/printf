@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 10:07:27 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/08 21:24:54 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 17:37:09 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,34 @@ static void	str_prec(char *str, int len, t_buff *buff)
 		ft_buffer(str[i++], buff);
 }
 
-static void	str_width(char *str, t_data_tab *data, t_buff *buff)
+static void	just_left_s(char *str, int spaces, t_data *data, t_buff *buff)
 {
-	int	spaces;
+	if (data->flags[precision])
+		str_prec(str, data->flags[precision], buff);
+	else
+		ft_str_to_buff(str, buff);
+	while (spaces-- > 0)
+		ft_buffer(' ', buff);
+}
 
+static void	str_width(char *str, t_data *data, t_buff *buff)
+{
+	int		spaces;
+	char	c;
+
+	c = ' ';
+	if (data->flags[zero])
+		c = '0';
 	if (data->flags[precision] && data->flags[precision] < (int)ft_strlen(str))
 		spaces = data->flags[width] - data->flags[precision];
 	else
 		spaces = data->flags[width] - ft_strlen(str);
 	if (data->flags[just_left])
-	{
-		if (data->flags[precision])
-			str_prec(str, data->flags[precision], buff);
-		else
-			ft_str_to_buff(str, buff);
-		while (spaces-- > 0)
-			ft_buffer(' ', buff);
-	}
+		just_left_s(str, spaces, data, buff);
 	else
 	{
 		while (spaces-- > 0)
-			ft_buffer(' ', buff);
+			ft_buffer(c, buff);
 		if (data->flags[precision])
 			str_prec(str, data->flags[precision], buff);
 		else
@@ -51,7 +58,7 @@ static void	str_width(char *str, t_data_tab *data, t_buff *buff)
 	}
 }
 
-int			pf_s(va_list ap, t_data_tab *data, t_buff *buff)
+int			pf_s(va_list ap, t_data *data, t_buff *buff)
 {
 	char	*str;
 

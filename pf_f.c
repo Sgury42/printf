@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:29:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/05 23:14:05 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:37:58 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int					pf_f(va_list ap, t_data_tab *data, t_buff *buff)
+int					pf_f(va_list ap, t_data *data, t_buff *buff)
 {
 	long double	nbr;
 	char		*str;

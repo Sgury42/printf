@@ -6,7 +6,7 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:28:16 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/10 10:39:52 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:37:37 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char		*min_ll_int(unsigned long long nbr)
 }
 
 static int		checkflags_d(char *str, long long int nbr,
-		t_data_tab *data, t_buff *buff)
+		t_data *data, t_buff *buff)
 {
 	int	ret;
 
@@ -49,7 +49,7 @@ static int		checkflags_d(char *str, long long int nbr,
 	return (ret);
 }
 
-static void		sign_d(char *str, t_data_tab *data, t_buff *buff)
+static void		sign_d(char *str, t_data *data, t_buff *buff)
 {
 	if (data->flags[sign] && str[0] != '-')
 		ft_buffer('+', buff);
@@ -57,7 +57,7 @@ static void		sign_d(char *str, t_data_tab *data, t_buff *buff)
 		ft_buffer(' ', buff);
 }
 
-int				pf_d(va_list ap, t_data_tab *data, t_buff *buff)
+int				pf_d(va_list ap, t_data *data, t_buff *buff)
 {
 	long long int	nbr;
 	char			*str;

@@ -6,17 +6,17 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:03:20 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/09 12:49:53 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:31:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_dispatcher(va_list ap, t_data_tab *data, t_buff *buff)
+int		ft_dispatcher(va_list ap, t_data *data, t_buff *buff)
 {
 	static char	*fct_name[NB_FUNC] = {"c", "s", "p", "d", "i", "o", "u",
 		"x", "X", "b", "f", "%"};
-	static int	(*fct_list[NB_FUNC])(va_list, t_data_tab *, t_buff *) = {pf_c,
+	static int	(*fct_list[NB_FUNC])(va_list, t_data *, t_buff *) = {pf_c,
 		pf_s, pf_p, pf_d, pf_d, pf_o, pf_u, pf_x, pf_x, pf_b, pf_f,
 		pf_percentage};
 	int			i;

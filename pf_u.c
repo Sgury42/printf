@@ -6,13 +6,13 @@
 /*   By: flbeaumo <flbeaumo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 18:22:40 by flbeaumo          #+#    #+#             */
-/*   Updated: 2019/06/09 17:49:13 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:39:41 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	checkflags_u(t_data_tab *data, t_buff *buff)
+static void	checkflags_u(t_data *data, t_buff *buff)
 {
 	if (data->flags[sign])
 		ft_buffer('+', buff);
@@ -20,7 +20,7 @@ static void	checkflags_u(t_data_tab *data, t_buff *buff)
 		ft_buffer(' ', buff);
 }
 
-int			pf_u(va_list ap, t_data_tab *data, t_buff *buff)
+int			pf_u(va_list ap, t_data *data, t_buff *buff)
 {
 	unsigned long long int	nbr;
 	char					*str;

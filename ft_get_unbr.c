@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 14:58:55 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/31 10:32:56 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:33:15 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned long long int		ft_get_unbr(va_list ap, t_data_tab *data)
+unsigned long long int		ft_get_unbr(va_list ap, t_data *data)
 {
 	unsigned long long int	nbr;
 

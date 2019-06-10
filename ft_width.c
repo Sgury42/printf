@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 09:51:48 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/10 00:08:21 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:42:23 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	hashtag_flag(t_data_tab *data, t_buff *buff)
+static void	hashtag_flag(t_data *data, t_buff *buff)
 {
 	if ((data->conv == 'x' || data->conv == 'X') && data->flags[zero] == 0)
 	{
@@ -25,7 +25,7 @@ static void	hashtag_flag(t_data_tab *data, t_buff *buff)
 		ft_str_to_buff("0x", buff);
 }
 
-static void	right_core(t_data_tab *data, t_buff *buff, int *neg, char **str)
+static void	right_core(t_data *data, t_buff *buff, int *neg, char **str)
 {
 	if (*str[0] == '-')
 	{
@@ -36,7 +36,7 @@ static void	right_core(t_data_tab *data, t_buff *buff, int *neg, char **str)
 		ft_buffer('+', buff);
 }
 
-static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
+static void	justify_right(char *str, t_data *data, t_buff *buff)
 {
 	int		spaces;
 	char	c;
@@ -63,7 +63,7 @@ static void	justify_right(char *str, t_data_tab *data, t_buff *buff)
 	ft_str_to_buff(str + neg, buff);
 }
 
-static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
+static void	justify_left(char *str, t_data *data, t_buff *buff)
 {
 	int	spaces;
 
@@ -78,7 +78,7 @@ static void	justify_left(char *str, t_data_tab *data, t_buff *buff)
 	}
 }
 
-void		ft_width(char *str, t_data_tab *data, t_buff *buff)
+void		ft_width(char *str, t_data *data, t_buff *buff)
 {
 	if (data->flags[just_left])
 	{

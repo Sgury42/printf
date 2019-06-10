@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:16:08 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/09 23:10:03 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/10 11:45:44 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int		ft_printf(const char *format, ...)
 {
-	t_data_tab	data;
+	t_data		data;
 	t_buff		buff;
 	int			index;
 	va_list		ap;
 
 	va_start(ap, format);
-	ft_bzero(&data, sizeof(t_data_tab));
+	ft_bzero(&data, sizeof(t_data));
 	ft_bzero(&buff, sizeof(t_buff));
 	index = 0;
 	while ((index = ft_parse(format, &data, index, &buff)) > 0)
@@ -31,7 +31,7 @@ int		ft_printf(const char *format, ...)
 			if (ft_dispatcher(ap, &data, &buff) < 0)
 				return (-1);
 		}
-		ft_bzero(&data, sizeof(t_data_tab));
+		ft_bzero(&data, sizeof(t_data));
 	}
 	if (index < 0)
 		return (-1);

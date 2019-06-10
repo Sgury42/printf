@@ -6,13 +6,13 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 21:49:24 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/05 23:14:00 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 11:32:36 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long double	ft_get_float(va_list ap, t_data_tab *data)
+long double	ft_get_float(va_list ap, t_data *data)
 {
 	long double	nbr;
 

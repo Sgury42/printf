@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 23:34:36 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/09 23:05:50 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/10 11:35:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	conv_x(char x, t_buff *buff)
 	ft_buffer(x, buff);
 }
 
-static void	left_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
+static void	left_justify(char *str, int neg, t_data *data, t_buff *buff)
 {
 	int	prec;
 	int	spaces;
@@ -54,7 +54,7 @@ static void	justify_right_core(t_buff *buff, int prec, char *str, int neg)
 	ft_str_to_buff(str + neg, buff);
 }
 
-static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
+static void	right_justify(char *str, int neg, t_data *data, t_buff *buff)
 {
 	int	prec;
 	int	spaces;
@@ -81,7 +81,7 @@ static void	right_justify(char *str, int neg, t_data_tab *data, t_buff *buff)
 	justify_right_core(buff, prec, str, neg);
 }
 
-void		ft_precision(char *str, t_data_tab *data, t_buff *buff)
+void		ft_precision(char *str, t_data *data, t_buff *buff)
 {
 	int	neg;
 

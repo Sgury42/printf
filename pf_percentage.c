@@ -6,16 +6,18 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 03:03:31 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/08 21:27:05 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/10 18:06:05 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_percentage(va_list ap, t_data_tab *data, t_buff *buff)
+int		pf_percentage(va_list ap, t_data *data, t_buff *buff)
 {
-	int	spaces;
+	int		spaces;
+	char	c;
 
+	c = ' ';
 	(void)ap;
 	spaces = data->flags[width];
 	if (data->flags[just_left])
@@ -26,8 +28,10 @@ int		pf_percentage(va_list ap, t_data_tab *data, t_buff *buff)
 	}
 	else
 	{
+		if (data->flags[zero])
+			c = '0';
 		while (--spaces > 0)
-			ft_buffer(' ', buff);
+			ft_buffer(c, buff);
 		ft_buffer('%', buff);
 	}
 	return (0);
