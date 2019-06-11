@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/10 19:07:33 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/11 11:24:21 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int				ft_parse(const char *str, t_data *data, int index, t_buff *buff)
 	{
 		if ((index = ft_get_color(str, index, buff)) < 0)
 			return (-1);
-		data->color = 1;
 		return (index);
 	}
 	return (0);

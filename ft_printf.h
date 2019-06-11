@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:28:29 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/10 19:08:36 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/11 11:24:16 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct			s_buff
 typedef struct			s_data
 {
 	int			flags[12];
-	int			color;
 	char		conv;
 }						t_data;
 

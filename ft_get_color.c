@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:16:23 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/10 19:15:13 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/11 11:22:45 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 int		color_to_buff(int x, int i, char *tmp, t_buff *buff)
 {
-	const char	*g_pf_color_define[NB_COLOR] = {RED, GREEN, YELLOW, BLUE, EOC};
+	const char	*g_pf_color_define[NB_COLOR] = {RED, GREEN, YELLOW, BLUE,
+		PINK, GRAY, BLACK, WHITE, EOC, BG_RED, BG_GREEN, BG_YELLOW, BG_BLUE,
+		BG_PINK, BG_GRAY, BG_BLACK, BG_WHITE, EOB};
 
 	ft_str_to_buff((char *)g_pf_color_define[i], buff);
 	ft_strdel(&tmp);
-	return (++x);
+	return (x + 1);
 }
 
 int		ft_get_color(const char *str, int index, t_buff *buff)
