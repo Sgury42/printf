@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 11:28:33 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/11 11:24:21 by sgury            ###   ########.fr       */
+/*   Updated: 2019/06/11 12:00:05 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,12 @@ static int		ft_get_flag(const char *str, t_data *data, int index)
 	return (++index);
 }
 
-static int		ft_get_data(const char *str, t_data *data,
-							int index, t_buff *buff)
+static int		ft_get_data(const char *str, t_data *data, int index)
 {
-	static char	conv[NB_CONV] = "sdiouxXfcpb";
+	static char	conv[NB_CONV] = "sdiouxXfcpb%";
 	int			i;
 
 	i = 0;
-	if (str[++index] == '%')
-	{
-		ft_buffer('%', buff);
-		data->conv = '%';
-		return (++index);
-	}
 	while (i < NB_CONV && str[index] != conv[i])
 	{
 		while (i < NB_CONV && str[index] != conv[i])
@@ -94,18 +87,21 @@ static int		ft_get_data(const char *str, t_data *data,
 
 int				ft_parse(const char *str, t_data *data, int index, t_buff *buff)
 {
+	int		no_conv;
+
 	while (str[index] != '\0' && str[index] != '%' && str[index] != '{')
 		ft_buffer(str[index++], buff);
+	no_conv = index;
 	if (str[index] == '%')
 	{
-		if ((index = ft_get_data(str, data, index, buff)) < 0)
-			return (-1);
+		if ((index = ft_get_data(str, data, index + 1)) < 0)
+			return (no_conv + 1);
 		return (index);
 	}
 	else if (str[index] == '{')
 	{
 		if ((index = ft_get_color(str, index, buff)) < 0)
-			return (-1);
+			return (no_conv + 1);
 		return (index);
 	}
 	return (0);

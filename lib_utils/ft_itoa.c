@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 11:46:09 by sgury             #+#    #+#             */
-/*   Updated: 2019/06/06 21:41:59 by flbeaumo         ###   ########.fr       */
+/*   Updated: 2019/06/10 11:17:40 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static char		*ft_fill_str(char *str, int len, long long nbr, int neg)
 
 char			*ft_itoa(long long n)
 {
-	char	        *str;
-	int		n_len;
-	int		neg;
+	char		*str;
+	int			n_len;
+	int			neg;
 	long long	nbr;
 
 	neg = 0;
